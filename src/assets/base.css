@@ -7,6 +7,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -59,4 +60,10 @@ button[class*="btn"]:active,
 ::-webkit-scrollbar-thumb {
   background: #2563EB;
   border-radius: 3px;
+}
+
+/* Sélection de texte */
+::selection {
+  background: rgba(37, 99, 235, 0.25);
+  color: #0A0F1E;
 }

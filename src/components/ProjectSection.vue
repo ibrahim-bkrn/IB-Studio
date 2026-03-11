@@ -214,11 +214,13 @@ const projects = [
   cursor: default;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(96, 165, 250, 0.3);
-  box-shadow: 0 0 30px rgba(37, 99, 235, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+@media (hover: hover) {
+  .project-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(96, 165, 250, 0.3);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
 }
 
 .project-icon {
@@ -235,8 +237,10 @@ const projects = [
   transition: all 0.3s ease;
 }
 
-.project-card:hover .project-icon {
-  background: rgba(37, 99, 235, 0.25);
+@media (hover: hover) {
+  .project-card:hover .project-icon {
+    background: rgba(37, 99, 235, 0.25);
+  }
 }
 
 .project-type {
@@ -288,10 +292,12 @@ const projects = [
   box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
 }
 
-.btn-cta:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 32px rgba(37, 99, 235, 0.7), 0 4px 20px rgba(37, 99, 235, 0.4);
-  background: #1d4ed8;
+@media (hover: hover) {
+  .btn-cta:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 32px rgba(37, 99, 235, 0.7), 0 4px 20px rgba(37, 99, 235, 0.4);
+    background: #1d4ed8;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -319,5 +325,49 @@ const projects = [
   .project-card:nth-child(n) {
     grid-column: auto !important;
   }
+}
+
+/* ── Auto-animations sur touch ── */
+@media (hover: none) {
+  /* Carte — lift + glow cyclique */
+  .project-card:nth-child(1) { animation: auto-project-card 10s ease-in-out infinite 1.5s; }
+  .project-card:nth-child(2) { animation: auto-project-card 10s ease-in-out infinite 3.5s; }
+  .project-card:nth-child(3) { animation: auto-project-card 10s ease-in-out infinite 5.5s; }
+  .project-card:nth-child(4) { animation: auto-project-card 10s ease-in-out infinite 7.5s; }
+  .project-card:nth-child(5) { animation: auto-project-card 10s ease-in-out infinite 9.5s; }
+
+  /* Icône */
+  .project-card:nth-child(1) .project-icon { animation: auto-project-icon 10s ease-in-out infinite 1.5s; }
+  .project-card:nth-child(2) .project-icon { animation: auto-project-icon 10s ease-in-out infinite 3.5s; }
+  .project-card:nth-child(3) .project-icon { animation: auto-project-icon 10s ease-in-out infinite 5.5s; }
+  .project-card:nth-child(4) .project-icon { animation: auto-project-icon 10s ease-in-out infinite 7.5s; }
+  .project-card:nth-child(5) .project-icon { animation: auto-project-icon 10s ease-in-out infinite 9.5s; }
+}
+
+@keyframes auto-project-card {
+  0%, 15% {
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+  }
+  25%, 35% {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(96, 165, 250, 0.3);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  50%, 100% {
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+  }
+}
+
+@keyframes auto-project-icon {
+  0%, 15%  { background: rgba(37, 99, 235, 0.15); }
+  25%, 35% { background: rgba(37, 99, 235, 0.28); }
+  50%, 100% { background: rgba(37, 99, 235, 0.15); }
 }
 </style>

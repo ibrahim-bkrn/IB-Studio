@@ -164,6 +164,24 @@ const steps = [
   letter-spacing: -1.5px;
   line-height: 1.15;
   margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563EB, #60A5FA);
+  border-radius: 2px;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+
+.process-container.visible .section-title::after {
+  width: 60px;
 }
 
 .section-subtitle {
@@ -211,10 +229,12 @@ const steps = [
   letter-spacing: 0.5px;
 }
 
-.step:hover .step-number {
-  background: rgba(37, 99, 235, 0.3);
-  border-color: #2563EB;
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+@media (hover: hover) {
+  .step:hover .step-number {
+    background: rgba(37, 99, 235, 0.3);
+    border-color: #2563EB;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+  }
 }
 
 .step-line {
@@ -252,9 +272,11 @@ const steps = [
   margin-top: 2px;
 }
 
-.step:hover .step-icon {
-  background: rgba(37, 99, 235, 0.15);
-  border-color: rgba(96, 165, 250, 0.25);
+@media (hover: hover) {
+  .step:hover .step-icon {
+    background: rgba(37, 99, 235, 0.15);
+    border-color: rgba(96, 165, 250, 0.25);
+  }
 }
 
 .step-body {
@@ -303,10 +325,12 @@ const steps = [
   transition: all 0.3s ease;
 }
 
-.step:hover .step-items li {
-  background: rgba(37, 99, 235, 0.1);
-  border-color: rgba(96, 165, 250, 0.2);
-  color: rgba(248, 250, 252, 0.8);
+@media (hover: hover) {
+  .step:hover .step-items li {
+    background: rgba(37, 99, 235, 0.1);
+    border-color: rgba(96, 165, 250, 0.2);
+    color: rgba(248, 250, 252, 0.8);
+  }
 }
 
 .process-note {
@@ -358,5 +382,44 @@ const steps = [
   .section-header {
     margin-bottom: 56px;
   }
+}
+
+/* ── Auto-animations sur touch ── */
+@media (hover: none) {
+  /* Numéro de step — glow cyclique */
+  .steps .step:nth-child(1) .step-number { animation: auto-step-glow 10s ease-in-out infinite 1.5s; }
+  .steps .step:nth-child(2) .step-number { animation: auto-step-glow 10s ease-in-out infinite 4s; }
+  .steps .step:nth-child(3) .step-number { animation: auto-step-glow 10s ease-in-out infinite 6.5s; }
+  .steps .step:nth-child(4) .step-number { animation: auto-step-glow 10s ease-in-out infinite 9s; }
+
+  /* Icône de step — halo */
+  .steps .step:nth-child(1) .step-icon { animation: auto-step-icon 10s ease-in-out infinite 1.5s; }
+  .steps .step:nth-child(2) .step-icon { animation: auto-step-icon 10s ease-in-out infinite 4s; }
+  .steps .step:nth-child(3) .step-icon { animation: auto-step-icon 10s ease-in-out infinite 6.5s; }
+  .steps .step:nth-child(4) .step-icon { animation: auto-step-icon 10s ease-in-out infinite 9s; }
+}
+
+@keyframes auto-step-glow {
+  0%, 18% {
+    background: rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: none;
+  }
+  28%, 38% {
+    background: rgba(37, 99, 235, 0.3);
+    border-color: #2563EB;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+  }
+  50%, 100% {
+    background: rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: none;
+  }
+}
+
+@keyframes auto-step-icon {
+  0%, 18%  { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08); }
+  28%, 38% { background: rgba(37, 99, 235, 0.18);   border-color: rgba(37, 99, 235, 0.35); }
+  50%, 100% { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.08); }
 }
 </style>

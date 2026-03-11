@@ -14,9 +14,13 @@
           v-for="(service, i) in services"
           :key="service.title"
           class="service-card"
-          :style="{ transitionDelay: `${i * 100}ms` }"
+          :style="tiltStyles[i]"
+          :class="`card-delay-${i}`"
           role="listitem"
+          @mousemove="onTiltMove(i, $event)"
+          @mouseleave="onTiltLeave(i)"
         >
+          <span class="card-num" aria-hidden="true">0{{ i + 1 }}</span>
           <div class="card-icon" aria-hidden="true">{{ service.icon }}</div>
           <h3 class="card-title">{{ service.title }}</h3>
           <p class="card-text">{{ service.text }}</p>
@@ -28,9 +32,33 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useIntersection } from '../composables/useIntersection.js'
 
 const { el: sectionEl, isVisible } = useIntersection({ threshold: 0.1 })
+
+// Tilt 3D
+const tiltStyles = ref(Array(4).fill({}))
+
+function onTiltMove(i, e) {
+  const card = e.currentTarget
+  const rect = card.getBoundingClientRect()
+  const cx = rect.left + rect.width / 2
+  const cy = rect.top + rect.height / 2
+  const dx = (e.clientX - cx) / (rect.width / 2)
+  const dy = (e.clientY - cy) / (rect.height / 2)
+  tiltStyles.value[i] = {
+    transform: `perspective(900px) rotateY(${dx * 6}deg) rotateX(${-dy * 5}deg) translateY(-6px)`,
+    transition: 'transform 0.1s ease',
+  }
+}
+
+function onTiltLeave(i) {
+  tiltStyles.value[i] = {
+    transform: 'perspective(900px) rotateY(0deg) rotateX(0deg) translateY(0px)',
+    transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+  }
+}
 
 const services = [
   {
@@ -40,8 +68,8 @@ const services = [
   },
   {
     icon: '⚡',
-    title: 'Développement sur-mesure',
-    text: 'La technologie choisie selon votre projet — pas l\'inverse. WordPress, code natif, CRM, e-commerce ou plateforme communautaire.',
+    title: 'Réalisation sur-mesure',
+    text: 'L\'outil choisi selon votre projet — pas l\'inverse. WordPress, CMS, e-commerce ou solution spécifique : ce qui correspond à votre besoin et votre budget.',
   },
   {
     icon: '◎',
@@ -78,12 +106,16 @@ const services = [
 .services-container {
   max-width: 1100px;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.services-container.visible {
+.section-header {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.services-container.visible .section-header {
   opacity: 1;
   transform: translateY(0);
 }
@@ -109,6 +141,25 @@ const services = [
   color: #0A0F1E;
   letter-spacing: -1.5px;
   margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563EB, #60A5FA);
+  border-radius: 2px;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+
+.services-container.visible .section-title::after {
+  width: 60px;
 }
 
 .section-subtitle {
@@ -126,6 +177,7 @@ const services = [
   gap: 24px;
 }
 
+/* Entrée en stagger par carte */
 .service-card {
   background: #FFFFFF;
   border: 1px solid rgba(10, 15, 30, 0.07);
@@ -134,28 +186,68 @@ const services = [
   position: relative;
   overflow: hidden;
   cursor: default;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.1s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  animation: card-enter 0.65s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.services-container:not(.visible) .service-card {
+  animation: none;
+}
+
+.services-container.visible .card-delay-0 { animation-delay: 0.05s; }
+.services-container.visible .card-delay-1 { animation-delay: 0.18s; }
+.services-container.visible .card-delay-2 { animation-delay: 0.31s; }
+.services-container.visible .card-delay-3 { animation-delay: 0.44s; }
+
+@keyframes card-enter {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .service-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, transparent 60%);
   border-radius: 20px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 40px rgba(37, 99, 235, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
-  border-color: rgba(37, 99, 235, 0.2);
+@media (hover: hover) {
+  .service-card:hover {
+    box-shadow: 0 8px 40px rgba(37, 99, 235, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-color: rgba(37, 99, 235, 0.22);
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover .card-icon {
+    background: rgba(37, 99, 235, 0.15);
+    transform: scale(1.05);
+  }
+  .service-card:hover .card-line { width: 100%; }
+  .service-card:hover .card-num {
+    color: rgba(37, 99, 235, 0.08);
+  }
 }
 
-.service-card:hover::before {
-  opacity: 1;
+/* Numéro décoratif */
+.card-num {
+  position: absolute;
+  top: 16px;
+  right: 22px;
+  font-size: 72px;
+  font-weight: 800;
+  color: rgba(10, 15, 30, 0.04);
+  letter-spacing: -5px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.3s ease;
+  font-variant-numeric: tabular-nums;
 }
 
 .card-icon {
@@ -170,11 +262,6 @@ const services = [
   border-radius: 14px;
   justify-content: center;
   transition: all 0.3s ease;
-}
-
-.service-card:hover .card-icon {
-  background: rgba(37, 99, 235, 0.15);
-  transform: scale(1.05);
 }
 
 .card-title {
@@ -202,8 +289,32 @@ const services = [
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.service-card:hover .card-line {
-  width: 100%;
+/* ── Auto-animations sur touch (pas de hover) ── */
+@media (hover: none) {
+  /* Ligne bleue du bas — cycle automatique */
+  .card-delay-0 .card-line { animation: auto-card-line 8s ease infinite 1.5s; }
+  .card-delay-1 .card-line { animation: auto-card-line 8s ease infinite 3.5s; }
+  .card-delay-2 .card-line { animation: auto-card-line 8s ease infinite 5.5s; }
+  .card-delay-3 .card-line { animation: auto-card-line 8s ease infinite 7.5s; }
+
+  /* Icône — scale + glow */
+  .card-delay-0 .card-icon { animation: auto-card-icon 8s ease infinite 1.5s; }
+  .card-delay-1 .card-icon { animation: auto-card-icon 8s ease infinite 3.5s; }
+  .card-delay-2 .card-icon { animation: auto-card-icon 8s ease infinite 5.5s; }
+  .card-delay-3 .card-icon { animation: auto-card-icon 8s ease infinite 7.5s; }
+}
+
+@keyframes auto-card-line {
+  0%, 10%  { width: 0; }
+  22%      { width: 100%; }
+  32%      { width: 100%; }
+  44%, 100% { width: 0; }
+}
+
+@keyframes auto-card-icon {
+  0%, 10%  { transform: scale(1);    background: rgba(37, 99, 235, 0.08); }
+  22%, 32% { transform: scale(1.08); background: rgba(37, 99, 235, 0.18); }
+  44%, 100% { transform: scale(1);   background: rgba(37, 99, 235, 0.08); }
 }
 
 @media (max-width: 768px) {

@@ -372,10 +372,12 @@ function resetForm() {
   box-shadow: 0 4px 20px rgba(22, 163, 74, 0.25);
 }
 
-.contact-direct-whatsapp:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(22, 163, 74, 0.4);
-  background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+@media (hover: hover) {
+  .contact-direct-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(22, 163, 74, 0.4);
+    background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+  }
 }
 
 .direct-icon {
@@ -414,9 +416,11 @@ function resetForm() {
   transition: transform 0.3s ease;
 }
 
-.contact-direct-whatsapp:hover .whatsapp-arrow {
-  transform: translateX(4px);
-  color: #ffffff;
+@media (hover: hover) {
+  .contact-direct-whatsapp:hover .whatsapp-arrow {
+    transform: translateX(4px);
+    color: #ffffff;
+  }
 }
 
 /* Form */
@@ -514,10 +518,12 @@ function resetForm() {
   margin-top: 4px;
 }
 
-.form-submit:hover:not(:disabled) {
-  background: #1d4ed8;
-  box-shadow: 0 0 28px rgba(37, 99, 235, 0.5), 0 4px 12px rgba(37, 99, 235, 0.3);
-  transform: scale(1.01);
+@media (hover: hover) {
+  .form-submit:hover:not(:disabled) {
+    background: #1d4ed8;
+    box-shadow: 0 0 28px rgba(37, 99, 235, 0.5), 0 4px 12px rgba(37, 99, 235, 0.3);
+    transform: scale(1.01);
+  }
 }
 
 .form-submit:disabled {
@@ -593,9 +599,11 @@ function resetForm() {
   transition: all 0.3s ease;
 }
 
-.success-reset:hover {
-  background: #2563EB;
-  color: white;
+@media (hover: hover) {
+  .success-reset:hover {
+    background: #2563EB;
+    color: white;
+  }
 }
 
 @media (max-width: 1024px) {

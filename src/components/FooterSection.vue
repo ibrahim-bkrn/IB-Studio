@@ -8,14 +8,14 @@
         </a>
         <nav class="footer-nav" aria-label="Navigation footer">
           <a href="#services" class="footer-link">Services</a>
-          <a href="#projet" class="footer-link">Mon approche</a>
+          <a href="#portfolio" class="footer-link">Réalisations</a>
           <a href="#contact" class="footer-link">Contact</a>
         </nav>
       </div>
       <div class="footer-divider" aria-hidden="true"></div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2025 IB Studio — Tous droits réservés</p>
-        <p class="footer-crafted">Conçu et développé avec soin.</p>
+        <p class="footer-crafted">Conçu avec soin par IB Studio.</p>
       </div>
     </div>
   </footer>

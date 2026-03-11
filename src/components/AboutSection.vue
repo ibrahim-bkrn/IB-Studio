@@ -13,14 +13,14 @@
       <div class="about-right" :class="{ visible: isVisible }">
         <p class="section-eyebrow">À propos</p>
         <h2 class="about-title">
-          Développeur web freelance,<br />
-          <span class="about-grad">le web, c'est mon métier.</span>
+          Créateur de sites web freelance,<br />
+          <span class="about-grad">votre réussite en ligne, c'est mon objectif.</span>
         </h2>
         <p class="about-text">
-          Issu d'une grande école d'ingénieurs, j'ai choisi de mettre mes compétences au service des entrepreneurs, artisans et PME qui veulent une présence en ligne à la hauteur de leur ambition — sans se noyer dans des agences coûteuses ou des outils qui ne leur conviennent pas.
+          Issu d'une grande école d'ingénieurs du numérique, je crée des sites web pour les entrepreneurs, artisans et PME qui veulent une présence en ligne à la hauteur de leur ambition — sans se noyer dans des agences coûteuses ou des outils qui ne leur conviennent pas.
         </p>
         <p class="about-text">
-          Mon approche : comprendre votre métier avant de toucher au code. Chaque projet est unique, chaque site est pensé pour vos clients, votre ton, vos objectifs.
+          Mon approche : comprendre votre métier avant de construire quoi que ce soit. Je choisis l'outil adapté — WordPress, CMS ou solution sur-mesure — selon votre projet, votre budget et vos objectifs.
         </p>
 
         <ul class="about-values" role="list">

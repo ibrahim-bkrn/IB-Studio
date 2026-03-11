@@ -119,8 +119,8 @@ const faqs = [
     answer: 'Pas du tout. On peut commencer par définir la structure ensemble, et vous préparez le contenu (textes, photos) en parallèle. Je peux aussi vous conseiller sur la rédaction ou vous orienter vers des ressources. Le contenu peut être intégré en cours de développement.',
   },
   {
-    question: 'Avec quelles technologies travaillez-vous ?',
-    answer: 'Je choisis la technologie selon votre projet, pas selon mes habitudes. Pour les sites vitrines et blogs : WordPress ou développement HTML/CSS/JS sur mesure. Pour les applications web : Vue.js, React. Pour l\'e-commerce : WooCommerce ou solutions headless. Le bon outil pour le bon besoin.',
+    question: 'WordPress ou sur-mesure — comment vous décidez ?',
+    answer: 'Selon ce qui est le plus adapté à votre projet. Pour la majorité des sites vitrines et blogs, WordPress est la solution idéale : rapide à livrer, facile à gérer pour vous ensuite. Pour des besoins spécifiques ou des interfaces plus complexes, je construis sur-mesure. Dans tous les cas, je choisis l\'outil qui sert votre projet — pas celui qui m\'arrange.',
   },
   {
     question: 'Le site sera-t-il optimisé pour Google (SEO) ?',
@@ -132,7 +132,7 @@ const faqs = [
   },
   {
     question: 'Puis-je modifier le site moi-même après livraison ?',
-    answer: 'Oui, c\'est un critère de choix technique. Si vous voulez gérer votre contenu en autonomie, je l\'intègre dans un CMS simple (WordPress, etc.) avec une formation à la prise en main. Vous pouvez modifier textes et images sans toucher au code.',
+    answer: 'Oui, si c\'est votre souhait, je construis le site sur un CMS (WordPress, etc.) avec une formation à la prise en main. Vous pouvez modifier textes et images vous-même, facilement, depuis une interface simple — sans aucune connaissance technique.',
   },
   {
     question: 'Comment se passe le paiement ?',
@@ -194,6 +194,25 @@ const faqs = [
   letter-spacing: -1.5px;
   line-height: 1.15;
   margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563EB, #60A5FA);
+  border-radius: 2px;
+  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+
+.faq-container.visible .section-title::after {
+  width: 60px;
 }
 
 .section-subtitle {
@@ -253,8 +272,8 @@ const faqs = [
   transition: color 0.3s ease;
 }
 
-.faq-question:hover {
-  color: #2563EB;
+@media (hover: hover) {
+  .faq-question:hover { color: #2563EB; }
 }
 
 .faq-item.open .faq-question {
@@ -347,10 +366,12 @@ const faqs = [
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.faq-cta-btn:hover {
-  background: #1d4ed8;
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
-  transform: scale(1.02);
+@media (hover: hover) {
+  .faq-cta-btn:hover {
+    background: #1d4ed8;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+    transform: scale(1.02);
+  }
 }
 
 .faq-stats {
@@ -371,9 +392,11 @@ const faqs = [
   transition: all 0.3s ease;
 }
 
-.stat:hover {
-  border-color: rgba(37, 99, 235, 0.2);
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+@media (hover: hover) {
+  .stat:hover {
+    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+  }
 }
 
 .stat strong {
