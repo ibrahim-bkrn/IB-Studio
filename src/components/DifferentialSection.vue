@@ -76,7 +76,10 @@ const points = [
   background: #0A0F1E;
   padding: 120px 24px;
   position: relative;
-  overflow: hidden;
+  /* débordement haut autorisé (orbe bleue remonte dans la section sombre précédente)
+     débordement bas clippé (ne saigne pas sur la section blanche) */
+  overflow: visible;
+  clip-path: inset(-400px 0px 0px 0px);
 }
 
 /* Orbes */
@@ -340,6 +343,9 @@ const points = [
 
 /* Auto-animations touch */
 @media (hover: none) {
+  .diff-container.visible .diff-card {
+    opacity: 1;
+  }
   .diff-delay-0 { animation: auto-diff-card 9s ease-in-out infinite 1.5s; }
   .diff-delay-1 { animation: auto-diff-card 9s ease-in-out infinite 4.5s; }
   .diff-delay-2 { animation: auto-diff-card 9s ease-in-out infinite 7.5s; }

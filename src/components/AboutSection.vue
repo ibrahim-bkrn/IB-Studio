@@ -270,6 +270,7 @@ const { el, isVisible } = useIntersection()
 
   .about-left {
     transform: translateY(-16px);
+    justify-content: flex-start;
   }
   .about-left.visible {
     transform: translateY(0);

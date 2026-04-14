@@ -32,20 +32,25 @@
           </a>
         </div>
 
-        <ul class="hero-trust" role="list" aria-label="Indicateurs de confiance">
-          <li>
-            <span class="trust-check" aria-hidden="true">✓</span>
-            3 ans d'expérience
-          </li>
-          <li>
-            <span class="trust-check" aria-hidden="true">✓</span>
-            Grande école d'ingénieur
-          </li>
-          <li>
-            <span class="trust-check" aria-hidden="true">✓</span>
-            Réponse sous 24h
-          </li>
-        </ul>
+        <div class="hero-trust" aria-label="Indicateurs de confiance">
+          <div class="trust-track">
+            <div class="trust-inner" aria-hidden="false">
+              <span class="trust-item"><span class="trust-check">✓</span> 3 ans d'expérience</span>
+              <span class="trust-sep" aria-hidden="true">·</span>
+              <span class="trust-item"><span class="trust-check">✓</span> Réponse sous 24h</span>
+              <span class="trust-sep" aria-hidden="true">·</span>
+              <span class="trust-item"><span class="trust-check">✓</span> Livraison en 2 à 3 semaines</span>
+              <span class="trust-sep" aria-hidden="true">·</span>
+              <!-- Duplicate pour boucle sans couture -->
+              <span class="trust-item" aria-hidden="true"><span class="trust-check">✓</span> 3 ans d'expérience</span>
+              <span class="trust-sep" aria-hidden="true">·</span>
+              <span class="trust-item" aria-hidden="true"><span class="trust-check">✓</span> Réponse sous 24h</span>
+              <span class="trust-sep" aria-hidden="true">·</span>
+              <span class="trust-item" aria-hidden="true"><span class="trust-check">✓</span> Livraison en 2 à 3 semaines</span>
+              <span class="trust-sep" aria-hidden="true">·</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -127,6 +132,7 @@ onUnmounted(() => {
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   background: #0A0F1E;
   display: flex;
   align-items: center;
@@ -380,16 +386,37 @@ onUnmounted(() => {
 }
 
 .hero-trust {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  list-style: none;
-  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
 }
 
-.hero-trust li {
+.trust-track {
   display: flex;
+}
+
+.trust-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+  animation: trust-marquee 18s linear infinite;
+}
+
+@keyframes trust-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (hover: hover) {
+  .hero-trust:hover .trust-inner {
+    animation-play-state: paused;
+  }
+}
+
+.trust-item {
+  display: inline-flex;
   align-items: center;
   gap: 7px;
   font-size: 12.5px;
@@ -400,6 +427,13 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.03);
+  flex-shrink: 0;
+}
+
+.trust-sep {
+  color: rgba(248, 250, 252, 0.15);
+  font-size: 18px;
+  flex-shrink: 0;
 }
 
 .trust-check {
@@ -432,13 +466,20 @@ onUnmounted(() => {
   .hero-title {
     letter-spacing: -1px;
   }
+  .hero-gradient {
+    display: block;
+  }
 
   .desktop-only {
     display: none;
   }
 
-  .hero-trust {
-    gap: 20px;
+
+  .hero-badge {
+    font-size: 11px;
+    letter-spacing: 0;
+    padding: 7px 14px;
+    white-space: nowrap;
   }
 }
 

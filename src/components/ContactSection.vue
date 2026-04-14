@@ -80,7 +80,7 @@
                   type="text"
                   class="form-input"
                   :class="{ error: errors.name }"
-                  placeholder="Jean Dupont"
+                  placeholder="Votre nom"
                   required
                   autocomplete="name"
                   aria-required="true"
@@ -97,7 +97,7 @@
                   type="email"
                   class="form-input"
                   :class="{ error: errors.email }"
-                  placeholder="jean@exemple.com"
+                  placeholder="votre@email.com"
                   required
                   autocomplete="email"
                   aria-required="true"
@@ -105,6 +105,18 @@
                 />
                 <span v-if="errors.email" class="form-error" role="alert">{{ errors.email }}</span>
               </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="form-label">Téléphone</label>
+              <input
+                id="phone"
+                v-model="form.phone"
+                type="tel"
+                class="form-input"
+                placeholder="+33 6 00 00 00 00"
+                autocomplete="tel"
+              />
             </div>
 
             <div class="form-group">
@@ -173,6 +185,7 @@ const { el: sectionEl, isVisible } = useIntersection({ threshold: 0.1 })
 const form = reactive({
   name: '',
   email: '',
+  phone: '',
   projectType: '',
   message: '',
 })
@@ -214,14 +227,31 @@ function validate() {
 async function handleSubmit() {
   if (!validate()) return
   submitting.value = true
-  await new Promise(resolve => setTimeout(resolve, 900))
-  submitting.value = false
-  submitted.value = true
+  try {
+    const res = await fetch('https://formspree.io/f/xwvrqazk', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        phone: form.phone || '—',
+        projectType: form.projectType,
+        message: form.message,
+      }),
+    })
+    if (!res.ok) throw new Error()
+    submitted.value = true
+  } catch {
+    errors.message = 'Une erreur est survenue. Réessayez ou contactez-moi sur WhatsApp.'
+  } finally {
+    submitting.value = false
+  }
 }
 
 function resetForm() {
   form.name = ''
   form.email = ''
+  form.phone = ''
   form.projectType = ''
   form.message = ''
   submitted.value = false
@@ -496,6 +526,12 @@ function resetForm() {
 .form-textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+.form-optional {
+  font-size: 12px;
+  font-weight: 400;
+  color: #94A3B8;
 }
 
 .form-error {

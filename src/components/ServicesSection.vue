@@ -60,6 +60,7 @@ function onTiltLeave(i) {
   }
 }
 
+
 const services = [
   {
     icon: '✦',
@@ -289,33 +290,6 @@ const services = [
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Auto-animations sur touch (pas de hover) ── */
-@media (hover: none) {
-  /* Ligne bleue du bas — cycle automatique */
-  .card-delay-0 .card-line { animation: auto-card-line 8s ease infinite 1.5s; }
-  .card-delay-1 .card-line { animation: auto-card-line 8s ease infinite 3.5s; }
-  .card-delay-2 .card-line { animation: auto-card-line 8s ease infinite 5.5s; }
-  .card-delay-3 .card-line { animation: auto-card-line 8s ease infinite 7.5s; }
-
-  /* Icône — scale + glow */
-  .card-delay-0 .card-icon { animation: auto-card-icon 8s ease infinite 1.5s; }
-  .card-delay-1 .card-icon { animation: auto-card-icon 8s ease infinite 3.5s; }
-  .card-delay-2 .card-icon { animation: auto-card-icon 8s ease infinite 5.5s; }
-  .card-delay-3 .card-icon { animation: auto-card-icon 8s ease infinite 7.5s; }
-}
-
-@keyframes auto-card-line {
-  0%, 10%  { width: 0; }
-  22%      { width: 100%; }
-  32%      { width: 100%; }
-  44%, 100% { width: 0; }
-}
-
-@keyframes auto-card-icon {
-  0%, 10%  { transform: scale(1);    background: rgba(37, 99, 235, 0.08); }
-  22%, 32% { transform: scale(1.08); background: rgba(37, 99, 235, 0.18); }
-  44%, 100% { transform: scale(1);   background: rgba(37, 99, 235, 0.08); }
-}
 
 @media (max-width: 768px) {
   .services {

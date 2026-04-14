@@ -10,10 +10,10 @@
     <main>
       <HeroSection id="hero" />
       <ServicesSection id="services" />
+      <PortfolioSection id="portfolio" />
       <DifferentialSection id="pourquoi" />
       <AboutSection id="apropos" />
       <ProcessSection id="processus" />
-      <PortfolioSection id="portfolio" />
       <FaqSection id="faq" />
       <ContactSection id="contact" />
     </main>
@@ -85,6 +85,8 @@ const ringStyle = computed(() => ({
 <style scoped>
 .app {
   position: relative;
+  width: 100%;
+  overflow-x: clip;
 }
 
 /* ── Dot — suit exactement ── */

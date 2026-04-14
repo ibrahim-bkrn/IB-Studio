@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio — Propositions visuelles</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: #060A14; color: #F8FAFC; }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: rgba(6, 10, 20, 0.9); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 14px 24px;
+    display: flex; align-items: center; gap: 12px; overflow-x: auto;
+  }
+  .nav-label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; margin-right: 8px; }
+  .nav a {
+    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5);
+    text-decoration: none; padding: 6px 14px; border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1); white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+  .nav a:hover { color: #fff; border-color: #2563EB; background: rgba(37,99,235,0.15); }
+
+  /* SECTION WRAPPER */
+  .proposal {
+    padding: 100px 0 120px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .proposal-header {
+    max-width: 1200px; margin: 0 auto 56px; padding: 0 24px;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+  }
+  .proposal-num {
+    font-size: 80px; font-weight: 900; color: rgba(37,99,235,0.08);
+    letter-spacing: -5px; line-height: 1; flex-shrink: 0;
+  }
+  .proposal-info { flex: 1; }
+  .proposal-tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: #2563EB;
+    margin-bottom: 10px;
+  }
+  .proposal-title { font-size: 28px; font-weight: 800; letter-spacing: -1px; color: #F8FAFC; margin-bottom: 8px; }
+  .proposal-desc { font-size: 15px; color: rgba(248,250,252,0.45); line-height: 1.7; max-width: 560px; }
+
+  /* COMMON CARD ELEMENTS */
+  .browser {
+    background: rgba(255,255,255,0.03);
+    border-radius: 16px 16px 0 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .browser-bar {
+    display: flex; align-items: center; gap: 5px; padding: 9px 14px;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .dot-r { background: rgba(239,68,68,0.55); }
+  .dot-y { background: rgba(234,179,8,0.55); }
+  .dot-g { background: rgba(34,197,94,0.55); }
+  .url-bar {
+    margin-left: 8px; font-size: 11px; color: rgba(255,255,255,0.28);
+    background: rgba(255,255,255,0.05); padding: 2px 10px;
+    border-radius: 20px; font-family: monospace;
+  }
+  .screen {
+    position: relative; overflow: hidden; background: #060A14;
+  }
+  .screen img {
+    width: 100%; height: 100%; object-fit: cover;
+    object-position: top center; display: block;
+  }
+  .card-info { padding: 18px 22px 22px; }
+  .card-name { font-size: 17px; font-weight: 700; color: #F8FAFC; margin-bottom: 6px; }
+  .card-desc { font-size: 13px; color: rgba(248,250,252,0.4); line-height: 1.65; margin-bottom: 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 11px; font-weight: 600; color: rgba(96,165,250,0.75);
+    background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2);
+    padding: 3px 10px; border-radius: 50px;
+  }
+  .see-link {
+    font-size: 12px; font-weight: 600; color: rgba(96,165,250,0.7);
+    text-decoration: none; float: right; margin-top: 2px;
+  }
+
+  /* ════════════════════════════════════════════
+     OPTION 1 — FEATURED + GRILLE
+  ════════════════════════════════════════════ */
+  #opt1 { background: #0A0F1E; }
+
+  .opt1-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  .opt1-featured {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px; overflow: hidden; margin-bottom: 20px;
+    display: grid; grid-template-columns: 1.1fr 1fr;
+  }
+  .opt1-featured .screen { aspect-ratio: unset; height: 100%; min-height: 340px; }
+  .opt1-featured-info {
+    padding: 40px 40px;
+    display: flex; flex-direction: column; justify-content: center; gap: 20px;
+  }
+  .opt1-featured-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: #2563EB;
+  }
+  .opt1-featured-title {
+    font-size: 28px; font-weight: 800; letter-spacing: -1px; color: #F8FAFC; line-height: 1.2;
+  }
+  .opt1-featured-desc { font-size: 15px; color: rgba(248,250,252,0.5); line-height: 1.75; }
+  .opt1-featured-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; background: #2563EB; color: #fff;
+    font-size: 14px; font-weight: 600; border-radius: 50px;
+    text-decoration: none; width: fit-content;
+  }
+
+  .opt1-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;
+  }
+  .opt1-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; overflow: hidden;
+  }
+  .opt1-card .screen { aspect-ratio: 16/9; }
+
+  /* ════════════════════════════════════════════
+     OPTION 2 — CAROUSEL HORIZONTAL
+  ════════════════════════════════════════════ */
+  #opt2 { background: #070B15; }
+
+  .opt2-track {
+    display: flex; gap: 20px; padding: 0 24px;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    max-width: 1400px; margin: 0 auto;
+  }
+  .opt2-track::-webkit-scrollbar { display: none; }
+
+  .opt2-card {
+    flex-shrink: 0; width: 520px; scroll-snap-align: start;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px; overflow: hidden;
+  }
+  .opt2-card .screen { aspect-ratio: 16/9; height: 280px; }
+
+  .opt2-nav {
+    max-width: 1200px; margin: 28px auto 0; padding: 0 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .opt2-arrow {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; cursor: pointer; color: rgba(255,255,255,0.6);
+    transition: all 0.2s; flex-shrink: 0;
+  }
+  .opt2-arrow:hover { background: rgba(37,99,235,0.2); border-color: #2563EB; color: #fff; }
+  .opt2-hint { font-size: 13px; color: rgba(255,255,255,0.25); }
+
+  /* ════════════════════════════════════════════
+     OPTION 3 — BANDES ÉDITORIALES
+  ════════════════════════════════════════════ */
+  #opt3 { background: #0A0F1E; }
+
+  .opt3-strip {
+    max-width: 1200px; margin: 0 auto 40px; padding: 0 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .opt3-strip.reverse { direction: rtl; }
+  .opt3-strip.reverse > * { direction: ltr; }
+
+  .opt3-media {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px; overflow: hidden;
+  }
+  .opt3-media .screen { aspect-ratio: 16/9; }
+
+  .opt3-content { display: flex; flex-direction: column; gap: 20px; }
+  .opt3-num {
+    font-size: 72px; font-weight: 900; color: rgba(37,99,235,0.08);
+    letter-spacing: -5px; line-height: 1;
+  }
+  .opt3-title { font-size: 32px; font-weight: 800; letter-spacing: -1.5px; color: #F8FAFC; line-height: 1.15; }
+  .opt3-desc { font-size: 16px; color: rgba(248,250,252,0.5); line-height: 1.8; }
+  .opt3-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 700; color: #60A5FA;
+    text-decoration: none;
+  }
+  .opt3-divider {
+    max-width: 1200px; margin: 0 auto 40px; padding: 0 24px;
+    height: 1px; background: rgba(255,255,255,0.06);
+  }
+
+  /* ════════════════════════════════════════════
+     OPTION 4 — BENTO MOSAÏQUE
+  ════════════════════════════════════════════ */
+  #opt4 { background: #080C18; }
+
+  .opt4-bento {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+
+  .opt4-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px; overflow: hidden;
+  }
+  .opt4-card--big { grid-row: span 2; display: flex; flex-direction: column; }
+  .opt4-card--big .screen { flex: 1; min-height: 360px; }
+  .opt4-card--big .card-info { padding: 24px 28px 28px; }
+  .opt4-card--big .card-name { font-size: 22px; margin-bottom: 8px; }
+  .opt4-card .screen { aspect-ratio: 16/9; }
+
+  /* ════════════════════════════════════════════
+     OPTION 5 — LISTE NUMÉROTÉE
+  ════════════════════════════════════════════ */
+  #opt5 { background: #0A0F1E; }
+
+  .opt5-list {
+    max-width: 900px; margin: 0 auto; padding: 0 24px;
+  }
+  .opt5-item {
+    display: grid; grid-template-columns: 60px 1fr 380px;
+    gap: 32px; align-items: center;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s ease;
+  }
+  .opt5-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+  .opt5-num-big {
+    font-size: 42px; font-weight: 900; color: rgba(255,255,255,0.06);
+    letter-spacing: -3px; line-height: 1;
+  }
+  .opt5-content {}
+  .opt5-name { font-size: 22px; font-weight: 700; color: #F8FAFC; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .opt5-desc { font-size: 14px; color: rgba(248,250,252,0.4); line-height: 1.7; margin-bottom: 14px; }
+  .opt5-preview {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .opt5-preview .screen { aspect-ratio: 16/9; }
+  .opt5-preview .browser-bar { padding: 7px 12px; }
+
+  /* ════════════════════════════════════════════
+     OPTION 6 — SPOTLIGHT CENTRÉ
+  ════════════════════════════════════════════ */
+  #opt6 { background: #070B15; }
+
+  .opt6-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  .opt6-spotlight {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px; overflow: hidden; margin-bottom: 32px;
+  }
+  .opt6-spotlight .screen { aspect-ratio: 16/8; }
+
+  .opt6-meta {
+    padding: 28px 32px;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;
+  }
+  .opt6-meta-left {}
+  .opt6-meta-name { font-size: 24px; font-weight: 800; color: #F8FAFC; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .opt6-meta-desc { font-size: 14px; color: rgba(248,250,252,0.45); max-width: 480px; line-height: 1.7; }
+  .opt6-meta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; flex-shrink: 0; }
+  .opt6-cta {
+    padding: 10px 20px; background: #2563EB; color: #fff;
+    font-size: 13px; font-weight: 600; border-radius: 50px; text-decoration: none;
+  }
+
+  .opt6-dots {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .opt6-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); cursor: pointer;
+    transition: all 0.2s;
+  }
+  .opt6-dot.active { width: 24px; border-radius: 4px; background: #2563EB; }
+
+  .opt6-thumbs {
+    display: flex; gap: 12px; justify-content: center;
+  }
+  .opt6-thumb {
+    width: 140px; border-radius: 10px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07); cursor: pointer;
+    opacity: 0.5; transition: opacity 0.2s, border-color 0.2s;
+  }
+  .opt6-thumb.active { opacity: 1; border-color: #2563EB; }
+  .opt6-thumb .screen { aspect-ratio: 16/9; }
+  .opt6-thumb-name {
+    padding: 6px 10px; font-size: 11px; font-weight: 600;
+    color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.03);
+  }
+
+  /* ════════════════════════════════════════════
+     OPTION 7 — CARDS AVEC HOVER OVERLAY
+  ════════════════════════════════════════════ */
+  #opt7 { background: #0A0F1E; }
+
+  .opt7-grid {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  .opt7-card {
+    border-radius: 18px; overflow: hidden; position: relative; cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.07);
+    aspect-ratio: 3/4;
+  }
+  .opt7-card .screen {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+  }
+  .opt7-card img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+  }
+  .opt7-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(6,10,20,0.95) 0%, rgba(6,10,20,0.3) 50%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 22px;
+  }
+  .opt7-site {
+    font-size: 10px; font-weight: 600; color: rgba(96,165,250,0.7);
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .opt7-name { font-size: 18px; font-weight: 800; color: #F8FAFC; letter-spacing: -0.3px; margin-bottom: 8px; }
+  .opt7-desc { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-label">Propositions</span>
+  <a href="#opt1">01 — Featured + grille</a>
+  <a href="#opt2">02 — Carousel</a>
+  <a href="#opt3">03 — Éditorial</a>
+  <a href="#opt4">04 — Bento mosaïque</a>
+  <a href="#opt5">05 — Liste numérotée</a>
+  <a href="#opt6">06 — Spotlight</a>
+  <a href="#opt7">07 — Overlay cards</a>
+</nav>
+
+<!-- ══════════════════════════════════════
+     OPTION 1 — FEATURED + GRILLE
+══════════════════════════════════════ -->
+<section class="proposal" id="opt1">
+  <div class="proposal-header">
+    <div class="proposal-info">
+      <span class="proposal-tag">Option 01</span>
+      <h2 class="proposal-title">Featured + Grille</h2>
+      <p class="proposal-desc">Un projet mis en avant en grand (le plus fort visuellement), les 3 autres en dessous. Crée une hiérarchie claire et donne de la valeur au projet phare.</p>
+    </div>
+    <div class="proposal-num">01</div>
+  </div>
+
+  <div class="opt1-wrap">
+    <div class="opt1-featured">
+      <div style="position:relative;">
+        <div class="browser" style="border-radius: 0;">
+          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">abuzaynah.fr</span></div>
+        </div>
+        <div class="screen" style="height: calc(100% - 36px); min-height:300px;">
+          <img src="./portfolio/abuZaynah.jpeg" alt="Abou Zaynah" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+        </div>
+      </div>
+      <div class="opt1-featured-info">
+        <span class="opt1-featured-label">✦ Projet phare</span>
+        <h3 class="opt1-featured-title">Abou Zaynah — Miel artisanal premium</h3>
+        <p class="opt1-featured-desc">Transmettre l'excellence et le savoir-faire d'une marque de miel à travers chaque détail visuel. Un équilibre entre premium et authenticité artisanale.</p>
+        <div class="tags" style="margin-bottom:8px;">
+          <span class="tag">E-commerce</span><span class="tag">Design premium</span><span class="tag">Sur-mesure</span>
+        </div>
+        <a href="https://abuzaynah.fr" class="opt1-featured-cta">Voir le site ↗</a>
+      </div>
+    </div>
+
+    <div class="opt1-grid">
+      <div class="opt1-card">
+        <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">lahargne.fr</span></div></div>
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/lahargne.png" alt="La Hargne" /></div>
+        <div class="card-info"><div style="display:flex;justify-content:space-between;align-items:center;"><span class="card-name">La Hargne</span><a href="#" class="see-link">Voir ↗</a></div><div class="tags" style="margin-top:8px;"><span class="tag">E-commerce</span><span class="tag">Identité forte</span></div></div>
+      </div>
+      <div class="opt1-card">
+        <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">horizon.fr</span></div></div>
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/horizon.png" alt="Horizon" /></div>
+        <div class="card-info"><div style="display:flex;justify-content:space-between;align-items:center;"><span class="card-name">Horizon</span><a href="#" class="see-link">Voir ↗</a></div><div class="tags" style="margin-top:8px;"><span class="tag">E-commerce</span><span class="tag">Mode</span></div></div>
+      </div>
+      <div class="opt1-card">
+        <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">ib-studio.fr</span></div></div>
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./og-image.png" alt="IB Studio" style="width:100%;height:100%;object-fit:cover;object-position:center;" /></div>
+        <div class="card-info"><div style="display:flex;justify-content:space-between;align-items:center;"><span class="card-name">IB Studio</span><a href="#" class="see-link">Voir ↗</a></div><div class="tags" style="margin-top:8px;"><span class="tag">Site vitrine</span><span class="tag">Ce site</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     OPTION 2 — CAROUSEL
+══════════════════════════════════════ -->
+<section class="proposal" id="opt2">
+  <div class="proposal-header">
+    <div class="proposal-info">
+      <span class="proposal-tag">Option 02</span>
+      <h2 class="proposal-title">Carousel horizontal</h2>
+      <p class="proposal-desc">Les projets défilent horizontalement. Swipe sur mobile, flèches sur desktop. Chaque carte est grande et centrale. Effet premium type agence.</p>
+    </div>
+    <div class="proposal-num">02</div>
+  </div>
+
+  <div class="opt2-track" id="carousel">
+    <div class="opt2-card">
+      <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">abuzaynah.fr</span></div></div>
+      <div class="screen" style="height:280px;"><img src="./portfolio/abuZaynah.jpeg" alt="Abou Zaynah" /></div>
+      <div class="card-info"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span class="card-name">Abou Zaynah</span><a href="#" class="see-link">Voir ↗</a></div><p class="card-desc">Miel artisanal premium — excellence et savoir-faire transmis visuellement.</p><div class="tags"><span class="tag">E-commerce</span><span class="tag">Design premium</span><span class="tag">Sur-mesure</span></div></div>
+    </div>
+    <div class="opt2-card">
+      <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">lahargne.fr</span></div></div>
+      <div class="screen" style="height:280px;"><img src="./portfolio/lahargne.png" alt="La Hargne" /></div>
+      <div class="card-info"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span class="card-name">La Hargne</span><a href="#" class="see-link">Voir ↗</a></div><p class="card-desc">Marque de t-shirts atypique — identité brute et message fort.</p><div class="tags"><span class="tag">E-commerce</span><span class="tag">Identité forte</span><span class="tag">Sur-mesure</span></div></div>
+    </div>
+    <div class="opt2-card">
+      <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">horizon.fr</span></div></div>
+      <div class="screen" style="height:280px;"><img src="./portfolio/horizon.png" alt="Horizon" /></div>
+      <div class="card-info"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span class="card-name">Horizon</span><a href="#" class="see-link">Voir ↗</a></div><p class="card-desc">E-commerce de lunettes — navigation fluide, univers estival affirmé.</p><div class="tags"><span class="tag">E-commerce</span><span class="tag">Mode</span><span class="tag">Sur-mesure</span></div></div>
+    </div>
+    <div class="opt2-card">
+      <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">ib-studio.fr</span></div></div>
+      <div class="screen" style="height:280px;"><img src="./og-image.png" alt="IB Studio" style="object-position:center;" /></div>
+      <div class="card-info"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span class="card-name">IB Studio</span><a href="#" class="see-link">Voir ↗</a></div><p class="card-desc">Ce site — animations avancées, design premium, performance optimisée.</p><div class="tags"><span class="tag">Site vitrine</span><span class="tag">Ce site</span><span class="tag">Sur-mesure</span></div></div>
+    </div>
+  </div>
+  <div class="opt2-nav">
+    <div class="opt2-arrow" onclick="document.getElementById('carousel').scrollBy({left:-540,behavior:'smooth'})">←</div>
+    <div class="opt2-arrow" onclick="document.getElementById('carousel').scrollBy({left:540,behavior:'smooth'})">→</div>
+    <span class="opt2-hint">Scrollez ou utilisez les flèches</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     OPTION 3 — ÉDITORIAL
+══════════════════════════════════════ -->
+<section class="proposal" id="opt3">
+  <div class="proposal-header">
+    <div class="proposal-info">
+      <span class="proposal-tag">Option 03</span>
+      <h2 class="proposal-title">Bandes éditoriales</h2>
+      <p class="proposal-desc">Chaque projet en pleine largeur, image et texte côte à côte en alternant. Layout type magazine. Le plus rare — aucun freelance ne fait ça. Raconte une histoire.</p>
+    </div>
+    <div class="proposal-num">03</div>
+  </div>
+
+  <div class="opt3-strip">
+    <div class="opt3-media">
+      <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">abuzaynah.fr</span></div></div>
+      <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/abuZaynah.jpeg" alt="Abou Zaynah" /></div>
+    </div>
+    <div class="opt3-content">
+      <div class="opt3-num">01</div>
+      <h3 class="opt3-title">Abou Zaynah</h3>
+      <div class="tags"><span class="tag">E-commerce</span><span class="tag">Design premium</span><span class="tag">Sur-mesure</span></div>
+      <p class="opt3-desc">Miel artisanal premium — transmettre l'excellence et le savoir-faire d'une marque à travers chaque détail visuel. Un équilibre rare entre luxe et authenticité.</p>
+      <a class="opt3-link" href="#">Voir le site ↗</a>
+    </div>
+  </div>
+  <div class="opt3-divider"></div>
+
+  <div class="opt3-strip reverse">
+    <div class="opt3-media">
+      <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">lahargne.fr</span></div></div>
+      <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/lahargne.png" alt="La Hargne" /></div>
+    </div>
+    <div class="opt3-content">
+      <div class="opt3-num">02</div>
+      <h3 class="opt3-title">La Hargne</h3>
+      <div class="tags"><span class="tag">E-commerce</span><span class="tag">Identité forte</span><span class="tag">Sur-mesure</span></div>
+      <p class="opt3-desc">Marque de t-shirts atypique portant un message fort — une identité brute et assumée qui ne laisse pas indifférent.</p>
+      <a class="opt3-link" href="#">Voir le site ↗</a>
+    </div>
+  </div>
+  <div class="opt3-divider"></div>
+
+  <div class="opt3-strip">
+    <div class="opt3-media">
+      <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">horizon.fr</span></div></div>
+      <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/horizon.png" alt="Horizon" /></div>
+    </div>
+    <div class="opt3-content">
+      <div class="opt3-num">03</div>
+      <h3 class="opt3-title">Horizon</h3>
+      <div class="tags"><span class="tag">E-commerce</span><span class="tag">Mode</span><span class="tag">Sur-mesure</span></div>
+      <p class="opt3-desc">E-commerce de lunettes de soleil — navigation fluide, univers estival affirmé, expérience d'achat soignée de bout en bout.</p>
+      <a class="opt3-link" href="#">Voir le site ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     OPTION 4 — BENTO MOSAÏQUE
+══════════════════════════════════════ -->
+<section class="proposal" id="opt4">
+  <div class="proposal-header">
+    <div class="proposal-info">
+      <span class="proposal-tag">Option 04</span>
+      <h2 class="proposal-title">Bento mosaïque</h2>
+      <p class="proposal-desc">Grille asymétrique style bento. Un grand projet domine à gauche (sur 2 lignes), deux plus petits à droite. Dynamique et moderne, popularisé par Apple.</p>
+    </div>
+    <div class="proposal-num">04</div>
+  </div>
+
+  <div class="opt4-bento">
+    <div class="opt4-card opt4-card--big">
+      <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">abuzaynah.fr</span></div></div>
+      <div class="screen" style="flex:1;min-height:360px;"><img src="./portfolio/abuZaynah.jpeg" alt="Abou Zaynah" /></div>
+      <div class="card-info" style="padding:24px 28px 28px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span class="card-name" style="font-size:20px;">Abou Zaynah</span><a href="#" class="see-link">Voir ↗</a></div>
+        <p class="card-desc">Miel artisanal premium — transmettre l'excellence et le savoir-faire à travers chaque détail visuel.</p>
+        <div class="tags"><span class="tag">E-commerce</span><span class="tag">Design premium</span><span class="tag">Sur-mesure</span></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="opt4-card">
+        <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">lahargne.fr</span></div></div>
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/lahargne.png" alt="La Hargne" /></div>
+        <div class="card-info"><div style="display:flex;justify-content:space-between;"><span class="card-name">La Hargne</span><a href="#" class="see-link">Voir ↗</a></div><div class="tags" style="margin-top:8px;"><span class="tag">E-commerce</span><span class="tag">Identité forte</span></div></div>
+      </div>
+      <div class="opt4-card">
+        <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">horizon.fr</span></div></div>
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/horizon.png" alt="Horizon" /></div>
+        <div class="card-info"><div style="display:flex;justify-content:space-between;"><span class="card-name">Horizon</span><a href="#" class="see-link">Voir ↗</a></div><div class="tags" style="margin-top:8px;"><span class="tag">E-commerce</span><span class="tag">Mode</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     OPTION 5 — LISTE NUMÉROTÉE
+══════════════════════════════════════ -->
+<section class="proposal" id="opt5">
+  <div class="proposal-header">
+    <div class="proposal-info">
+      <span class="proposal-tag">Option 05</span>
+      <h2 class="proposal-title">Liste numérotée</h2>
+      <p class="proposal-desc">Chaque projet sur une ligne avec numéro, infos et miniature. Très épuré, minimaliste. Fait agence premium. Parfait pour mettre le texte en avant.</p>
+    </div>
+    <div class="proposal-num">05</div>
+  </div>
+
+  <div class="opt5-list">
+    <div class="opt5-item">
+      <div class="opt5-num-big">01</div>
+      <div class="opt5-content">
+        <h3 class="opt5-name">Abou Zaynah</h3>
+        <p class="opt5-desc">Miel artisanal premium — transmettre l'excellence et le savoir-faire à travers chaque détail visuel. Un équilibre entre luxe et authenticité.</p>
+        <div class="tags"><span class="tag">E-commerce</span><span class="tag">Design premium</span><span class="tag">Sur-mesure</span></div>
+      </div>
+      <div class="opt5-preview">
+        <div class="browser-bar" style="padding:6px 10px;"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/abuZaynah.jpeg" alt="Abou Zaynah" /></div>
+      </div>
+    </div>
+    <div class="opt5-item">
+      <div class="opt5-num-big">02</div>
+      <div class="opt5-content">
+        <h3 class="opt5-name">La Hargne</h3>
+        <p class="opt5-desc">Marque de t-shirts atypique portant un message fort — une identité brute, assumée, qui ne laisse pas indifférent.</p>
+        <div class="tags"><span class="tag">E-commerce</span><span class="tag">Identité forte</span><span class="tag">Sur-mesure</span></div>
+      </div>
+      <div class="opt5-preview">
+        <div class="browser-bar" style="padding:6px 10px;"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/lahargne.png" alt="La Hargne" /></div>
+      </div>
+    </div>
+    <div class="opt5-item">
+      <div class="opt5-num-big">03</div>
+      <div class="opt5-content">
+        <h3 class="opt5-name">Horizon</h3>
+        <p class="opt5-desc">E-commerce de lunettes de soleil — navigation fluide, univers estival affirmé, expérience d'achat soignée.</p>
+        <div class="tags"><span class="tag">E-commerce</span><span class="tag">Mode</span><span class="tag">Sur-mesure</span></div>
+      </div>
+      <div class="opt5-preview">
+        <div class="browser-bar" style="padding:6px 10px;"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/horizon.png" alt="Horizon" /></div>
+      </div>
+    </div>
+    <div class="opt5-item">
+      <div class="opt5-num-big">04</div>
+      <div class="opt5-content">
+        <h3 class="opt5-name">IB Studio</h3>
+        <p class="opt5-desc">Ce site — vitrine professionnelle avec animations avancées, design premium et performance optimisée.</p>
+        <div class="tags"><span class="tag">Site vitrine</span><span class="tag">Ce site</span><span class="tag">Sur-mesure</span></div>
+      </div>
+      <div class="opt5-preview">
+        <div class="browser-bar" style="padding:6px 10px;"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./og-image.png" alt="IB Studio" style="object-position:center;" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     OPTION 6 — SPOTLIGHT
+══════════════════════════════════════ -->
+<section class="proposal" id="opt6">
+  <div class="proposal-header">
+    <div class="proposal-info">
+      <span class="proposal-tag">Option 06</span>
+      <h2 class="proposal-title">Spotlight centré</h2>
+      <p class="proposal-desc">Un seul projet en grand à la fois. Les thumbnails en bas permettent de naviguer. Très immersif, donne l'impression que chaque projet mérite l'attention.</p>
+    </div>
+    <div class="proposal-num">06</div>
+  </div>
+
+  <div class="opt6-wrap">
+    <div class="opt6-spotlight">
+      <div class="browser"><div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="url-bar">abuzaynah.fr</span></div></div>
+      <div class="screen" style="aspect-ratio:16/8;"><img src="./portfolio/abuZaynah.jpeg" alt="Abou Zaynah" /></div>
+      <div class="opt6-meta">
+        <div class="opt6-meta-left">
+          <div class="opt6-meta-name">Abou Zaynah</div>
+          <p class="opt6-meta-desc">Miel artisanal premium — transmettre l'excellence et le savoir-faire à travers chaque détail visuel. Un équilibre entre luxe et authenticité artisanale.</p>
+          <div class="tags" style="margin-top:12px;"><span class="tag">E-commerce</span><span class="tag">Design premium</span><span class="tag">Sur-mesure</span></div>
+        </div>
+        <div class="opt6-meta-right">
+          <a href="#" class="opt6-cta">Voir le site ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="opt6-dots" style="margin-bottom:20px;">
+      <div class="opt6-dot active"></div>
+      <div class="opt6-dot"></div>
+      <div class="opt6-dot"></div>
+      <div class="opt6-dot"></div>
+    </div>
+
+    <div class="opt6-thumbs">
+      <div class="opt6-thumb active">
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/abuZaynah.jpeg" alt="" /></div>
+        <div class="opt6-thumb-name">Abou Zaynah</div>
+      </div>
+      <div class="opt6-thumb">
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/lahargne.png" alt="" /></div>
+        <div class="opt6-thumb-name">La Hargne</div>
+      </div>
+      <div class="opt6-thumb">
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./portfolio/horizon.png" alt="" /></div>
+        <div class="opt6-thumb-name">Horizon</div>
+      </div>
+      <div class="opt6-thumb">
+        <div class="screen" style="aspect-ratio:16/9;"><img src="./og-image.png" alt="" style="object-position:center;" /></div>
+        <div class="opt6-thumb-name">IB Studio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     OPTION 7 — OVERLAY CARDS
+══════════════════════════════════════ -->
+<section class="proposal" id="opt7">
+  <div class="proposal-header">
+    <div class="proposal-info">
+      <span class="proposal-tag">Option 07</span>
+      <h2 class="proposal-title">Overlay cards</h2>
+      <p class="proposal-desc">4 cartes portrait côte à côte, l'image prend tout l'espace, le texte est en overlay en bas. Très visuel, très impact. Style agence haut de gamme.</p>
+    </div>
+    <div class="proposal-num">07</div>
+  </div>
+
+  <div class="opt7-grid">
+    <div class="opt7-card">
+      <div class="screen"><img src="./portfolio/abuZaynah.jpeg" alt="Abou Zaynah" /></div>
+      <div class="opt7-overlay">
+        <div class="opt7-site">abuzaynah.fr</div>
+        <div class="opt7-name">Abou Zaynah</div>
+        <p class="opt7-desc">Miel artisanal premium</p>
+        <div class="tags" style="margin-top:10px;"><span class="tag">E-commerce</span><span class="tag">Premium</span></div>
+      </div>
+    </div>
+    <div class="opt7-card">
+      <div class="screen"><img src="./portfolio/lahargne.png" alt="La Hargne" /></div>
+      <div class="opt7-overlay">
+        <div class="opt7-site">lahargne.fr</div>
+        <div class="opt7-name">La Hargne</div>
+        <p class="opt7-desc">Marque de t-shirts atypique</p>
+        <div class="tags" style="margin-top:10px;"><span class="tag">E-commerce</span><span class="tag">Identité</span></div>
+      </div>
+    </div>
+    <div class="opt7-card">
+      <div class="screen"><img src="./portfolio/horizon.png" alt="Horizon" /></div>
+      <div class="opt7-overlay">
+        <div class="opt7-site">horizon.fr</div>
+        <div class="opt7-name">Horizon</div>
+        <p class="opt7-desc">E-commerce lunettes de soleil</p>
+        <div class="tags" style="margin-top:10px;"><span class="tag">E-commerce</span><span class="tag">Mode</span></div>
+      </div>
+    </div>
+    <div class="opt7-card">
+      <div class="screen"><img src="./og-image.png" alt="IB Studio" style="object-position:center;" /></div>
+      <div class="opt7-overlay">
+        <div class="opt7-site">ib-studio.fr</div>
+        <div class="opt7-name">IB Studio</div>
+        <p class="opt7-desc">Ce site — vitrine professionnelle</p>
+        <div class="tags" style="margin-top:10px;"><span class="tag">Vitrine</span><span class="tag">Ce site</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

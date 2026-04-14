@@ -112,15 +112,15 @@ const faqs = [
   },
   {
     question: 'Quel est le délai de réalisation ?',
-    answer: 'Un site vitrine simple est généralement livré en 2 à 4 semaines. Un projet plus complexe (e-commerce, outil métier) peut prendre 4 à 8 semaines. Les délais dépendent aussi de votre réactivité sur les validations — plus on avance ensemble, plus on va vite.',
+    answer: 'Ça dépend vraiment du projet. Un site vitrine peut être livré en moins de 2 semaines, parfois bien moins selon la complexité. Un projet plus ambitieux (e-commerce, outil métier) demande 4 à 8 semaines. Les délais dépendent aussi de votre réactivité sur les validations — plus on avance ensemble, plus on va vite.',
   },
   {
     question: 'Je n\'ai pas de contenu préparé, est-ce un problème ?',
-    answer: 'Pas du tout. On peut commencer par définir la structure ensemble, et vous préparez le contenu (textes, photos) en parallèle. Je peux aussi vous conseiller sur la rédaction ou vous orienter vers des ressources. Le contenu peut être intégré en cours de développement.',
+    answer: 'Pas du tout. On peut commencer par définir la structure ensemble, et vous préparez le contenu en parallèle. Et si vous n\'en avez pas, je peux m\'en charger — c\'est un service que je propose (rédaction, sélection d\'images). Une légère marge s\'ajoute selon le volume, mais tout est discuté en amont.',
   },
   {
     question: 'WordPress ou sur-mesure — comment vous décidez ?',
-    answer: 'Selon ce qui est le plus adapté à votre projet. Pour la majorité des sites vitrines et blogs, WordPress est la solution idéale : rapide à livrer, facile à gérer pour vous ensuite. Pour des besoins spécifiques ou des interfaces plus complexes, je construis sur-mesure. Dans tous les cas, je choisis l\'outil qui sert votre projet — pas celui qui m\'arrange.',
+    answer: 'Selon ce qui est le plus adapté à votre projet. Pour la majorité des sites vitrines et blogs, WordPress est la solution idéale : rapide à livrer, facile à gérer pour vous ensuite. Pour des besoins spécifiques ou des interfaces plus complexes, je développe sur-mesure — c\'est-à-dire à partir du code, sans système tout fait. Dans tous les cas, je choisis l\'outil qui sert votre projet — pas celui qui m\'arrange.',
   },
   {
     question: 'Le site sera-t-il optimisé pour Google (SEO) ?',
@@ -136,7 +136,7 @@ const faqs = [
   },
   {
     question: 'Comment se passe le paiement ?',
-    answer: 'En général : 40% au démarrage, 40% à la validation du design, 20% à la livraison finale. Pour les projets courts, un acompte de 50% peut suffire. Les modalités sont toujours discutées et formalisées avant le début du projet.',
+    answer: 'En règle générale, un acompte est demandé au démarrage pour couvrir les outils et licences nécessaires au projet. La répartition exacte dépend ensuite de la nature et de la complexité du projet — plus il est robuste, plus les jalons sont structurés. Les modalités sont toujours discutées et formalisées avant le début du projet.',
   },
 ]
 </script>
