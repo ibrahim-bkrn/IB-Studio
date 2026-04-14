@@ -32,7 +32,6 @@
                 </div>
                 <div class="p-screen">
                   <img src="/portfolio/abuZaynah.jpeg" alt="Abou Zaynah" class="p-img" :class="{ hidden: active.az }" loading="lazy" />
-                  <video ref="azRef" src="/portfolio/abuZaynah.mp4" muted loop playsinline class="p-vid" :class="{ show: active.az }"></video>
                 </div>
               </div>
               <div class="p-body">
@@ -58,7 +57,6 @@
                 </div>
                 <div class="p-screen">
                   <img src="/portfolio/lahargne.png" alt="La Hargne" class="p-img" :class="{ hidden: active.lh }" loading="lazy" />
-                  <video ref="lhRef" src="/portfolio/lahargne.mp4" muted loop playsinline class="p-vid" :class="{ show: active.lh }"></video>
                 </div>
               </div>
               <div class="p-body">
@@ -84,7 +82,6 @@
                 </div>
                 <div class="p-screen">
                   <img src="/portfolio/horizon.png" alt="Horizon" class="p-img" :class="{ hidden: active.hz }" loading="lazy" />
-                  <video ref="hzRef" src="/portfolio/horizon.mp4" muted loop playsinline class="p-vid" :class="{ show: active.hz }"></video>
                 </div>
               </div>
               <div class="p-body">
