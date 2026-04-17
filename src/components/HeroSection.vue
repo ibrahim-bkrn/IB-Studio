@@ -54,11 +54,11 @@
       </div>
     </div>
 
-    <div class="hero-scroll-indicator" aria-hidden="true">
+    <!--<div class="hero-scroll-indicator" aria-hidden="true">
       <div class="scroll-pill">
         <div class="scroll-pill-dot"></div>
       </div>
-    </div>
+    </div>-->
   </section>
 </template>
 

@@ -124,8 +124,16 @@
         </div>
 
         <!-- Arrows (desktop) -->
-        <button class="carousel-arrow carousel-arrow--prev" @click="scroll(-1)" aria-label="Projet précédent">←</button>
-        <button class="carousel-arrow carousel-arrow--next" @click="scroll(1)" aria-label="Projet suivant">→</button>
+        <button class="carousel-arrow carousel-arrow--prev" @click="scroll(-1)" aria-label="Projet précédent">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="carousel-arrow carousel-arrow--next" @click="scroll(1)" aria-label="Projet suivant">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="transform: rotate(180deg)">
+            <path fill-rule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clip-rule="evenodd" />
+          </svg>
+        </button>
       </div>
 
       <!-- Dots -->
@@ -506,7 +514,6 @@ onUnmounted(() => {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 17px;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.7);
   display: flex;
@@ -514,6 +521,12 @@ onUnmounted(() => {
   justify-content: center;
   transition: all 0.2s ease;
   z-index: 2;
+}
+
+.carousel-arrow svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .carousel-arrow--prev { left: 16px; }

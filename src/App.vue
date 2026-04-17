@@ -10,7 +10,7 @@
     <main>
       <HeroSection id="hero" />
       <ServicesSection id="services" />
-      <!-- <PortfolioSection id="portfolio" /> -->
+      <!--<PortfolioSection id="portfolio" />-->
       <DifferentialSection id="pourquoi" />
       <AboutSection id="apropos" />
       <ProcessSection id="processus" />

@@ -54,17 +54,17 @@ const { el: sectionEl, isVisible } = useIntersection({ threshold: 0.08 })
 
 const points = [
   {
-    icon: '⚡',
+    icon: '🚀',
     title: 'La qualité d\'une agence, le prix d\'un freelance',
     text: 'Résultat professionnel, design soigné, site performant — sans les marges, les réunions inutiles et les intermédiaires d\'une agence traditionnelle.',
   },
   {
-    icon: '◎',
+    icon: '🤝',
     title: 'Un interlocuteur, pas un ticket',
     text: 'Vous m\'écrivez directement, je vous réponds directement. Pas de chef de projet, pas de transfert de dossier, pas de "votre contact habituel est absent".',
   },
   {
-    icon: '✦',
+    icon: '🎓',
     title: 'Formation ingénieur, méthode éprouvée',
     text: 'Grande école du numérique : rigueur, respect des délais, livrables clairs. Vous ne misez pas sur un amateur qui improvise.',
   },

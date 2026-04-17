@@ -21,7 +21,7 @@
           @mouseleave="onTiltLeave(i)"
         >
           <span class="card-num" aria-hidden="true">0{{ i + 1 }}</span>
-          <div class="card-icon" aria-hidden="true">{{ service.icon }}</div>
+          <div class="card-icon" aria-hidden="true" v-html="service.icon"></div>
           <h3 class="card-title">{{ service.title }}</h3>
           <p class="card-text">{{ service.text }}</p>
           <div class="card-line" aria-hidden="true"></div>
@@ -63,22 +63,33 @@ function onTiltLeave(i) {
 
 const services = [
   {
-    icon: '✦',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+  <path fill-rule="evenodd" d="M2.25 5.25a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3V15a3 3 0 0 1-3 3h-3v.257c0 .597.237 1.17.659 1.591l.621.622a.75.75 0 0 1-.53 1.28h-9a.75.75 0 0 1-.53-1.28l.621-.622a2.25 2.25 0 0 0 .659-1.59V18h-3a3 3 0 0 1-3-3V5.25Zm1.5 0v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5Z" clip-rule="evenodd" />
+</svg>`,
     title: 'Conception & Design',
     text: 'Une identité visuelle forte et cohérente, pensée pour marquer les esprits et renforcer la crédibilité de votre marque.',
   },
   {
-    icon: '⚡',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+</svg>`,
     title: 'Réalisation sur-mesure',
     text: 'L\'outil choisi selon votre projet — pas l\'inverse. WordPress, CMS, e-commerce ou solution spécifique : ce qui correspond à votre besoin et votre budget.',
   },
   {
-    icon: '◎',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+  <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+  <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
+</svg>`,
     title: 'Référencement SEO',
     text: 'Pour être trouvé par vos clients, pas seulement visible. Une stratégie de référencement intégrée dès la conception.',
   },
   {
-    icon: '⬡',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+  <path fill-rule="evenodd" d="M12 6.75a5.25 5.25 0 0 1 6.775-5.025.75.75 0 0 1 .313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 0 1 1.248.313 5.25 5.25 0 0 1-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 1 1 2.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0 1 12 6.75ZM4.117 19.125a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Z" clip-rule="evenodd" />
+  <path d="m10.076 8.64-2.201-2.2V4.874a.75.75 0 0 0-.364-.643l-3.75-2.25a.75.75 0 0 0-.916.113l-.75.75a.75.75 0 0 0-.113.916l2.25 3.75a.75.75 0 0 0 .643.364h1.564l2.062 2.062 1.575-1.297Z" />
+  <path fill-rule="evenodd" d="m12.556 17.329 4.183 4.182a3.375 3.375 0 0 0 4.773-4.773l-3.306-3.305a6.803 6.803 0 0 1-1.53.043c-.394-.034-.682-.006-.867.042a.589.589 0 0 0-.167.063l-3.086 3.748Zm3.414-1.36a.75.75 0 0 1 1.06 0l1.875 1.876a.75.75 0 1 1-1.06 1.06L15.97 17.03a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+</svg>`,
     title: 'Suivi & Maintenance',
     text: 'Je reste disponible après la livraison. Mises à jour, évolutions, support — votre site grandit avec votre business.',
   },
@@ -252,7 +263,6 @@ const services = [
 }
 
 .card-icon {
-  font-size: 28px;
   margin-bottom: 20px;
   color: #2563EB;
   display: flex;
@@ -263,6 +273,12 @@ const services = [
   border-radius: 14px;
   justify-content: center;
   transition: all 0.3s ease;
+}
+
+.card-icon :deep(svg) {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .card-title {
