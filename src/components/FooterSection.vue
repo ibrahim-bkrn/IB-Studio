@@ -15,7 +15,10 @@
       <div class="footer-divider" aria-hidden="true"></div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2025 IB Studio — Tous droits réservés</p>
-        <p class="footer-crafted">Conçu avec soin par IB Studio.</p>
+        <div class="footer-right">
+          <a href="/mentions-legales.html" class="footer-legal">Mentions légales</a>
+          <p class="footer-crafted">Conçu avec soin par IB Studio.</p>
+        </div>
       </div>
     </div>
   </footer>
@@ -104,6 +107,21 @@ import LogoBrand from './LogoBrand.vue'
   font-size: 13px;
   color: rgba(248, 250, 252, 0.35);
 }
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-legal {
+  font-size: 13px;
+  color: rgba(248, 250, 252, 0.3);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-legal:hover { color: rgba(248, 250, 252, 0.7); }
 
 .footer-crafted {
   font-size: 13px;

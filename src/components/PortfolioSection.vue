@@ -14,6 +14,7 @@
         <span class="section-label">✦ Réalisations</span>
         <h2 id="portfolio-title" class="section-title">Des sites qui parlent d'eux-mêmes</h2>
         <p class="section-subtitle">4 projets livrés — chacun avec une identité forte et un objectif précis.</p>
+
       </div>
 
       <!-- Carousel -->
@@ -28,7 +29,7 @@
                   <span class="dot dot--red"></span>
                   <span class="dot dot--yellow"></span>
                   <span class="dot dot--green"></span>
-                  <span class="p-url">abuzaynah.fr</span>
+                  <span class="p-url">abuzaynah.com</span>
                 </div>
                 <div class="p-screen">
                   <img src="/portfolio/abuZaynah.jpeg" alt="Abou Zaynah" class="p-img" :class="{ hidden: active.az }" loading="lazy" />
@@ -37,7 +38,7 @@
               <div class="p-body">
                 <div class="p-row">
                   <h3 class="p-name">Abou Zaynah</h3>
-                  <a href="https://abuzaynah.fr" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
+                  <a href="https://abuzaynah.com" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
                 </div>
                 <p class="p-desc">Miel artisanal premium — transmettre l'excellence et le savoir-faire à travers chaque détail visuel.</p>
                 <div class="p-tags">
@@ -121,6 +122,33 @@
               </div>
             </article>
 
+            <!-- CTA card -->
+            <article class="p-card p-card--cta">
+              <div class="p-media">
+                <div class="p-chrome">
+                  <span class="dot dot--red"></span>
+                  <span class="dot dot--yellow"></span>
+                  <span class="dot dot--green"></span>
+                  <span class="p-url p-url--placeholder">votre-site.fr</span>
+                </div>
+                <div class="p-screen p-screen--empty">
+                  <div class="p-screen-plus" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"/>
+                      <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="p-body">
+                <div class="p-row">
+                  <h3 class="p-name">Votre projet <span class="p-badge p-badge--next">À venir</span></h3>
+                </div>
+                <p class="p-desc">Et pourquoi le prochain ne serait pas vous ? Chaque projet ici a commencé par une conversation.</p>
+                <a href="#contact" class="p-cta-btn">Démarrer mon projet →</a>
+              </div>
+            </article>
+
         </div>
 
         <!-- Arrows (desktop) -->
@@ -139,7 +167,7 @@
       <!-- Dots -->
       <div class="carousel-dots" :class="{ visible: wrapVisible }" role="tablist" aria-label="Projets">
         <button
-          v-for="(_, i) in 4"
+          v-for="(_, i) in 5"
           :key="i"
           class="carousel-dot"
           :class="{ active: activeIndex === i }"
@@ -502,6 +530,89 @@ onUnmounted(() => {
   border: 1px solid rgba(37, 99, 235, 0.18);
   padding: 3px 10px;
   border-radius: 50px;
+}
+
+/* ── CTA card ── */
+.p-card--cta {
+  border-style: dashed;
+  border-color: rgba(37, 99, 235, 0.25);
+  background: rgba(37, 99, 235, 0.03);
+}
+
+@media (hover: hover) {
+  .p-card--cta:hover {
+    border-color: rgba(37, 99, 235, 0.5);
+    box-shadow: 0 20px 48px rgba(37, 99, 235, 0.15);
+    transform: translateY(-4px);
+  }
+}
+
+.p-url--placeholder {
+  color: rgba(96, 165, 250, 0.4);
+  font-style: italic;
+}
+
+.p-screen--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 99, 235, 0.04);
+  border: 1.5px dashed rgba(37, 99, 235, 0.18);
+  border-radius: 0;
+}
+
+.p-screen-plus {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(37, 99, 235, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(37, 99, 235, 0.5);
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.p-screen-plus svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (hover: hover) {
+  .p-card--cta:hover .p-screen-plus {
+    border-color: rgba(37, 99, 235, 0.7);
+    color: rgba(96, 165, 250, 0.8);
+    transform: scale(1.1);
+  }
+}
+
+.p-badge--next {
+  color: rgba(96, 165, 250, 0.9);
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.p-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: #2563EB;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  margin-top: 6px;
+}
+
+@media (hover: hover) {
+  .p-cta-btn:hover {
+    background: #1D4ED8;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    transform: translateY(-1px);
+  }
 }
 
 /* ── Arrows ── */

@@ -1,7 +1,5 @@
 <template>
   <div class="app" @mousemove="onMouseMove">
-    <LoaderScreen />
-
     <!-- Cursor : dot + ring -->
     <div class="cursor-dot" :style="dotStyle" aria-hidden="true"></div>
     <div class="cursor-ring" :class="{ hovering: isHovering }" :style="ringStyle" aria-hidden="true"></div>
@@ -10,7 +8,7 @@
     <main>
       <HeroSection id="hero" />
       <ServicesSection id="services" />
-      <!--<PortfolioSection id="portfolio" />-->
+      <!-- <PortfolioSection id="portfolio" /> -->
       <DifferentialSection id="pourquoi" />
       <AboutSection id="apropos" />
       <ProcessSection id="processus" />
@@ -24,7 +22,6 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import LoaderScreen from './components/LoaderScreen.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import ServicesSection from './components/ServicesSection.vue'
