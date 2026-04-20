@@ -63,7 +63,7 @@
               <div class="p-body">
                 <div class="p-row">
                   <h3 class="p-name">La Hargne</h3>
-                  <a href="https://lahargne.fr" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
+                  <a href="https://la-hargne.vercel.app" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
                 </div>
                 <p class="p-desc">Marque de t-shirts atypique — une identité brute et assumée qui ne laisse pas indifférent.</p>
                 <div class="p-tags">
@@ -79,20 +79,20 @@
                   <span class="dot dot--red"></span>
                   <span class="dot dot--yellow"></span>
                   <span class="dot dot--green"></span>
-                  <span class="p-url">horizon.fr</span>
+                  <span class="p-url">serriasecurite.com</span>
                 </div>
                 <div class="p-screen">
-                  <img src="/portfolio/horizon.png" alt="Horizon" class="p-img" :class="{ hidden: active.hz }" loading="lazy" />
+                  <img src="/public/portfolio/serria.png" alt="Serria Sécurité" class="p-img" :class="{ hidden: active.hz }" loading="lazy" />
                 </div>
               </div>
               <div class="p-body">
                 <div class="p-row">
-                  <h3 class="p-name">Horizon</h3>
-                  <a href="https://horizon.fr" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
+                  <h3 class="p-name">Serria Sécurité</h3>
+                  <a href="https://serriasecurite.vercel.app" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
                 </div>
-                <p class="p-desc">E-commerce de lunettes de soleil — navigation fluide, univers estival affirmé, expérience d'achat soignée.</p>
+                <p class="p-desc">Site vitrine pour une entreprise de sécurité.</p>
                 <div class="p-tags">
-                  <span>E-commerce</span><span>Mode</span><span>Sur-mesure</span>
+                  <span>Site vitrine</span><span>Refonte</span><span>Sur-mesure</span>
                 </div>
               </div>
             </article>
