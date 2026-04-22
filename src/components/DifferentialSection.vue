@@ -8,10 +8,10 @@
       <div class="diff-header">
         <span class="diff-label" aria-hidden="true">— Pourquoi moi</span>
         <h2 id="diff-title" class="diff-title">
-          Pas une agence.<br />Pas un template.
+          Pourquoi choisir<br class="mobile-break" /> IB Studio ?
         </h2>
-        <p class="diff-subtitle">
-          Un développeur qui s'investit dans votre projet comme si c'était le sien.
+        <p class="diff-subtitle"> 
+          Voici ce qui me différencie.
         </p>
       </div>
 
@@ -54,14 +54,14 @@ const { el: sectionEl, isVisible } = useIntersection({ threshold: 0.08 })
 
 const points = [
   {
-    icon: '🚀',
-    title: 'La qualité d\'une agence, le prix d\'un freelance',
-    text: 'Résultat professionnel, design soigné, site performant — sans les marges, les réunions inutiles et les intermédiaires d\'une agence traditionnelle.',
+    icon: '🤝',
+    title: 'Je m\'occupe de votre projet comme si c\'était le mien',
+    text: 'Je m\'adapte à vous, pas l\'inverse. Pas de process compliqué, pas de réunions inutiles — je comprends votre besoin, je m\'adapte à votre situation et à votre disponibilité.',
   },
   {
-    icon: '🤝',
-    title: 'Un interlocuteur, pas un ticket',
-    text: 'Vous m\'écrivez directement, je vous réponds directement. Pas de chef de projet, pas de transfert de dossier, pas de "votre contact habituel est absent".',
+    icon: '🚀',
+    title: 'La qualité d\'une agence, le prix d\'un freelance',
+    text: 'Résultat professionnel, design soigné, site performant — sans les marges ni les intermédiaires d\'une agence traditionnelle.',
   },
   {
     icon: '🎓',
@@ -124,6 +124,12 @@ const points = [
 }
 
 /* Header */
+.mobile-break { display: none; }
+
+/*.diff-title-sub {
+  font-size: 0.9em;
+}*/
+
 .diff-header {
   text-align: center;
   margin-bottom: 72px;
@@ -372,6 +378,8 @@ const points = [
 }
 
 @media (max-width: 768px) {
+  .mobile-break { display: block; }
+
   .differential {
     padding: 80px 20px;
   }
