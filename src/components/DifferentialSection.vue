@@ -39,7 +39,6 @@
         </div>
         <a href="#contact" class="launch-cta">
           Profiter de l'offre
-          <span aria-hidden="true">→</span>
         </a>
       </div>
 

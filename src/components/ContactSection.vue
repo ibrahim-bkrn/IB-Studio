@@ -69,7 +69,6 @@
                 <strong>Écrire sur WhatsApp</strong>
                 <small>Réponse rapide garantie</small>
               </span>
-              <span class="whatsapp-arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </aside>

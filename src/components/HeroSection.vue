@@ -7,48 +7,35 @@
 
     <div class="hero-container">
       <div class="hero-content" :class="{ visible: mounted }">
-        <div class="hero-badge" aria-label="Spécialité">
-          <span class="badge-dot" aria-hidden="true">✦</span>
-          IB Studio — Création Web &amp; Solutions Digitales
-        </div>
-
         <h1 class="hero-title">
-          Votre présence en ligne,<br />
-          pensée pour <span class="hero-gradient">{{ currentWord }}<span class="cursor-blink">|</span></span>
+          Je conçois des sites web <br class="desktop-br">pour les entrepreneurs qui veulent <br class="desktop-br">un site web qui travaille pour eux.
         </h1>
 
         <p class="hero-subtitle">
-          Je crée des sites web qui attirent, convainquent et convertissent —<br class="desktop-only" />
-          sur-mesure ou sur CMS, toujours pensés pour votre business.
+          Laissez votre site bosser pour vous (pas l'inverse) : conçu pour plaire, construit pour durer, fait pour attirer les bons clients.
         </p>
 
         <div class="hero-actions">
           <a href="#contact" class="btn-primary" aria-label="Discuter de votre projet">
             Parlons de votre projet
-            <span class="btn-arrow" aria-hidden="true">→</span>
           </a>
           <a href="#services" class="btn-secondary" aria-label="Voir les services proposés">
             Voir mes services
           </a>
         </div>
 
-        <div class="hero-trust" aria-label="Indicateurs de confiance">
-          <div class="trust-track">
-            <div class="trust-inner" aria-hidden="false">
-              <span class="trust-item"><span class="trust-check">✓</span> 3 ans d'expérience</span>
-              <span class="trust-sep" aria-hidden="true">·</span>
-              <span class="trust-item"><span class="trust-check">✓</span> Réponse sous 24h</span>
-              <span class="trust-sep" aria-hidden="true">·</span>
-              <span class="trust-item"><span class="trust-check">✓</span> Livraison en 2 à 3 semaines</span>
-              <span class="trust-sep" aria-hidden="true">·</span>
-              <!-- Duplicate pour boucle sans couture -->
-              <span class="trust-item" aria-hidden="true"><span class="trust-check">✓</span> 3 ans d'expérience</span>
-              <span class="trust-sep" aria-hidden="true">·</span>
-              <span class="trust-item" aria-hidden="true"><span class="trust-check">✓</span> Réponse sous 24h</span>
-              <span class="trust-sep" aria-hidden="true">·</span>
-              <span class="trust-item" aria-hidden="true"><span class="trust-check">✓</span> Livraison en 2 à 3 semaines</span>
-              <span class="trust-sep" aria-hidden="true">·</span>
-            </div>
+        <div class="hero-stats" aria-label="Chiffres clés">
+          <div class="stat-card">
+            <span class="stat-number">+5</span>
+            <span class="stat-label">Projets livrés</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">3 ans</span>
+            <span class="stat-label">d'expérience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">des clients sont satisfaits</span>
           </div>
         </div>
       </div>
@@ -83,47 +70,14 @@ function orbStyle(factorX, factorY) {
   }
 }
 
-// Typing effect
-const words = ['performer.', 'convertir.', 'grandir.', 'durer.']
-const currentWord = ref('')
-let wordIndex = 0
-let charIndex = 0
-let isDeleting = false
-let typingTimer = null
-
-function type() {
-  const target = words[wordIndex]
-
-  if (!isDeleting) {
-    currentWord.value = target.slice(0, charIndex + 1)
-    charIndex++
-    if (charIndex === target.length) {
-      isDeleting = true
-      typingTimer = setTimeout(type, 2000) // pause avant d'effacer
-      return
-    }
-  } else {
-    currentWord.value = target.slice(0, charIndex - 1)
-    charIndex--
-    if (charIndex === 0) {
-      isDeleting = false
-      wordIndex = (wordIndex + 1) % words.length
-    }
-  }
-
-  typingTimer = setTimeout(type, isDeleting ? 60 : 90)
-}
-
 onMounted(() => {
   requestAnimationFrame(() => {
     mounted.value = true
   })
-  typingTimer = setTimeout(type, 1800)
   window.addEventListener('mousemove', onMouseMove, { passive: true })
 })
 
 onUnmounted(() => {
-  clearTimeout(typingTimer)
   window.removeEventListener('mousemove', onMouseMove)
 })
 </script>
@@ -131,8 +85,7 @@ onUnmounted(() => {
 <style scoped>
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   background: #0A0F1E;
   display: flex;
   align-items: center;
@@ -197,8 +150,8 @@ onUnmounted(() => {
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, black 20%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, black 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 35%, black 10%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 35%, black 10%, transparent 70%);
 }
 
 .hero-container {
@@ -215,22 +168,20 @@ onUnmounted(() => {
   /* les enfants s'animent indépendamment */
 }
 
-.hero-badge,
 .hero-title,
 .hero-subtitle,
 .hero-actions,
-.hero-trust {
-  opacity: 0;
+.hero-stats {
+  opacity: 0; 
   transform: translateY(28px);
   transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
               transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero-content.visible .hero-badge    { opacity: 1; transform: translateY(0); transition-delay: 0.08s; }
-.hero-content.visible .hero-title    { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
-.hero-content.visible .hero-subtitle { opacity: 1; transform: translateY(0); transition-delay: 0.44s; }
-.hero-content.visible .hero-actions  { opacity: 1; transform: translateY(0); transition-delay: 0.58s; }
-.hero-content.visible .hero-trust    { opacity: 1; transform: translateY(0); transition-delay: 0.72s; }
+.hero-content.visible .hero-title    { opacity: 1; transform: translateY(0); transition-delay: 0.08s; }
+.hero-content.visible .hero-subtitle { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
+.hero-content.visible .hero-actions  { opacity: 1; transform: translateY(0); transition-delay: 0.44s; }
+.hero-content.visible .hero-stats    { opacity: 1; transform: translateY(0); transition-delay: 0.58s; }
 
 .hero-badge {
   display: inline-flex;
@@ -268,29 +219,18 @@ onUnmounted(() => {
 }
 
 .hero-title {
-  font-size: clamp(44px, 7vw, 72px);
-  font-weight: 800;
+  font-size: clamp(38px, 6vw, 65px);
+  font-weight: 500;
   color: #F8FAFC;
   line-height: 1.1;
   letter-spacing: -2px;
   margin-bottom: 24px;
+  margin-top: 70px;
+  width: min(1200px, 95vw);
+  margin-left: calc((min(1200px, 95vw) - 100%) / -2);
+  margin-right: calc((min(1200px, 95vw) - 100%) / -2);
 }
 
-.hero-gradient {
-  background: linear-gradient(270deg, #2563EB, #60A5FA, #c4b5fd, #60A5FA, #2563EB);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 6s ease infinite;
-  filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.3));
-}
-
-@keyframes gradient-shift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
 .hero-subtitle {
   font-size: clamp(16px, 2.2vw, 18px);
@@ -372,7 +312,7 @@ onUnmounted(() => {
   font-size: 15px;
   font-weight: 600;
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2.5px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -385,77 +325,69 @@ onUnmounted(() => {
   }
 }
 
-.hero-trust {
-  overflow: hidden;
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   width: 100%;
-  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
-  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  margin-top: 80px;
 }
 
-.trust-track {
+.stat-card {
   display: flex;
-}
-
-.trust-inner {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
-  white-space: nowrap;
-  animation: trust-marquee 18s linear infinite;
+  justify-content: center;
+  gap: 8px;
+  padding: 32px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
 }
 
-@keyframes trust-marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+.stat-number {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400;
+  color: #F8FAFC;
+  line-height: 1;
+  letter-spacing: -2px;
 }
 
-@media (hover: hover) {
-  .hero-trust:hover .trust-inner {
-    animation-play-state: paused;
+.stat-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(248, 250, 252, 0.45);
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 768px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 30px 20px;
+  }
+
+  .hero-title {
+    margin-top: 0;
   }
 }
 
-.trust-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 12.5px;
-  font-weight: 500;
-  color: rgba(248, 250, 252, 0.55);
-  letter-spacing: 0.3px;
-  padding: 6px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.03);
-  flex-shrink: 0;
-}
-
-.trust-sep {
-  color: rgba(248, 250, 252, 0.15);
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.trust-check {
-  color: #60A5FA;
-  font-size: 13px;
-}
-
-.cursor-blink {
-  display: inline-block;
-  width: 3px;
-  margin-left: 2px;
-  animation: blink 0.9s step-end infinite;
-  -webkit-text-fill-color: #60A5FA;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
 
 .desktop-only {
   display: block;
+}
+
+.desktop-br {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .desktop-br {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {

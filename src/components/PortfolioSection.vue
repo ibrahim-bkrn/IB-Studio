@@ -13,7 +13,7 @@
       <div class="section-header" ref="headerEl" :class="{ visible: headerVisible }">
         <span class="section-label">✦ Réalisations</span>
         <h2 id="portfolio-title" class="section-title">Des sites qui parlent d'eux-mêmes</h2>
-        <p class="section-subtitle">4 projets livrés — chacun avec une identité forte et un objectif précis.</p>
+        <p class="section-subtitle">Pour chaque projet, une identité forte et un objectif précis.</p>
 
       </div>
 

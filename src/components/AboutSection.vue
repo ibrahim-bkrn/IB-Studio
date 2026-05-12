@@ -49,7 +49,6 @@
 
         <a href="#contact" class="about-cta">
           Travaillons ensemble
-          <span aria-hidden="true">→</span>
         </a>
       </div>
 
@@ -116,7 +115,6 @@ const { el, isVisible } = useIntersection()
   background-clip: text;
   position: absolute;
   inset: 0;
-  /* override: show on bg */
   background-color: #0F172A;
   -webkit-text-fill-color: unset;
   color: #2563EB;

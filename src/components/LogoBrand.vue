@@ -78,7 +78,7 @@
   ══════════════════════════════════════════════════ -->
   <svg v-else
     :height="height"
-    viewBox="0 0 158 36"
+    viewBox="0 0 144 36"
     xmlns="http://www.w3.org/2000/svg"
     :aria-label="label"
     role="img"
@@ -95,8 +95,7 @@
       font-family="Inter, -apple-system, sans-serif"
       font-weight="800" font-size="28" fill="url(#ibGrad)" letter-spacing="-1"
     >IB</text>
-    <circle cx="50" cy="18" r="3.5" fill="#2563EB"/>
-    <text x="60" y="25"
+    <text x="46" y="25"
       font-family="Inter, -apple-system, sans-serif"
       font-weight="300" font-size="12.5" fill="#F8FAFC" letter-spacing="2.5"
     >STUDIO</text>

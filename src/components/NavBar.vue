@@ -17,7 +17,6 @@
 
       <a href="#contact" class="nav-cta" aria-label="Discuter de votre projet">
         Parlons de votre projet
-        <span aria-hidden="true">→</span>
       </a>
 
     </div>
