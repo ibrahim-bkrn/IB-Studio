@@ -11,7 +11,7 @@
     <div class="portfolio-container">
 
       <div class="section-header" ref="headerEl" :class="{ visible: headerVisible }">
-        <span class="section-label">✦ Réalisations</span>
+        <span class="section-label">Réalisations</span>
         <h2 id="portfolio-title" class="section-title">Des sites qui parlent d'eux-mêmes</h2>
         <p class="section-subtitle">Pour chaque projet, une identité forte et un objectif précis.</p>
 
@@ -24,6 +24,7 @@
 
             <!-- Abou Zaynah -->
             <article class="p-card" @mouseenter="play('az')" @mouseleave="pause('az')">
+              <a href="https://abuzaynah.com" target="_blank" rel="noopener noreferrer" class="p-card-link" aria-label="Voir le site Abou Zaynah"></a>
               <div class="p-media">
                 <div class="p-chrome">
                   <span class="dot dot--red"></span>
@@ -32,13 +33,13 @@
                   <span class="p-url">abuzaynah.com</span>
                 </div>
                 <div class="p-screen">
-                  <img src="/portfolio/abuZaynah.jpeg" alt="Abou Zaynah" class="p-img" :class="{ hidden: active.az }" loading="lazy" />
+                  <img src="/portfolio/apercu-abuzaynah_3_11zon.webp" alt="Abou Zaynah" class="p-img" :class="{ hidden: active.az }" loading="lazy" />
                 </div>
               </div>
               <div class="p-body">
                 <div class="p-row">
                   <h3 class="p-name">Abou Zaynah</h3>
-                  <a href="https://abuzaynah.com" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
+                  <span class="p-link" aria-hidden="true">Voir ↗</span>
                 </div>
                 <p class="p-desc">Miel artisanal premium — transmettre l'excellence et le savoir-faire à travers chaque détail visuel.</p>
                 <div class="p-tags">
@@ -47,33 +48,9 @@
               </div>
             </article>
 
-            <!-- La Hargne -->
-            <article class="p-card" @mouseenter="play('lh')" @mouseleave="pause('lh')">
-              <div class="p-media">
-                <div class="p-chrome">
-                  <span class="dot dot--red"></span>
-                  <span class="dot dot--yellow"></span>
-                  <span class="dot dot--green"></span>
-                  <span class="p-url">lahargne.fr</span>
-                </div>
-                <div class="p-screen">
-                  <img src="/portfolio/lahargne.png" alt="La Hargne" class="p-img" :class="{ hidden: active.lh }" loading="lazy" />
-                </div>
-              </div>
-              <div class="p-body">
-                <div class="p-row">
-                  <h3 class="p-name">La Hargne</h3>
-                  <a href="https://la-hargne.vercel.app" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
-                </div>
-                <p class="p-desc">Marque de t-shirts atypique — une identité brute et assumée qui ne laisse pas indifférent.</p>
-                <div class="p-tags">
-                  <span>E-commerce</span><span>Identité de marque</span><span>Sur-mesure</span>
-                </div>
-              </div>
-            </article>
-
             <!-- Horizon -->
             <article class="p-card" @mouseenter="play('hz')" @mouseleave="pause('hz')">
+              <a href="https://serriasecurite.vercel.app" target="_blank" rel="noopener noreferrer" class="p-card-link" aria-label="Voir le site Serria Sécurité"></a>
               <div class="p-media">
                 <div class="p-chrome">
                   <span class="dot dot--red"></span>
@@ -82,13 +59,13 @@
                   <span class="p-url">serriasecurite.com</span>
                 </div>
                 <div class="p-screen">
-                  <img src="/public/portfolio/serria.png" alt="Serria Sécurité" class="p-img" :class="{ hidden: active.hz }" loading="lazy" />
+                  <img src="/portfolio/apercu-sierrasecurite_1_11zon.webp" alt="Serria Sécurité" class="p-img" :class="{ hidden: active.hz }" loading="lazy" />
                 </div>
               </div>
               <div class="p-body">
                 <div class="p-row">
                   <h3 class="p-name">Serria Sécurité</h3>
-                  <a href="https://serriasecurite.vercel.app" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
+                  <span class="p-link" aria-hidden="true">Voir ↗</span>
                 </div>
                 <p class="p-desc">Site vitrine pour une entreprise de sécurité.</p>
                 <div class="p-tags">
@@ -97,8 +74,35 @@
               </div>
             </article>
 
+            <!-- La Hargne -->
+            <article class="p-card" @mouseenter="play('lh')" @mouseleave="pause('lh')">
+              <a href="https://la-hargne.vercel.app" target="_blank" rel="noopener noreferrer" class="p-card-link" aria-label="Voir le site La Hargne"></a>
+              <div class="p-media">
+                <div class="p-chrome">
+                  <span class="dot dot--red"></span>
+                  <span class="dot dot--yellow"></span>
+                  <span class="dot dot--green"></span>
+                  <span class="p-url">lahargne.fr</span>
+                </div>
+                <div class="p-screen">
+                  <img src="/portfolio/apercu-lahargne_2_11zon.webp" alt="La Hargne" class="p-img" :class="{ hidden: active.lh }" loading="lazy" />
+                </div>
+              </div>
+              <div class="p-body">
+                <div class="p-row">
+                  <h3 class="p-name">La Hargne</h3>
+                  <span class="p-link" aria-hidden="true">Voir ↗</span>
+                </div>
+                <p class="p-desc">Marque de t-shirts atypique — une identité brute et assumée qui ne laisse pas indifférent.</p>
+                <div class="p-tags">
+                  <span>E-commerce</span><span>Identité de marque</span><span>Sur-mesure</span>
+                </div>
+              </div>
+            </article>
+
             <!-- IB Studio -->
             <article class="p-card p-card--self">
+              <a href="https://ib-studio.fr" target="_blank" rel="noopener noreferrer" class="p-card-link" aria-label="Voir le site IB Studio"></a>
               <div class="p-media">
                 <div class="p-chrome">
                   <span class="dot dot--red"></span>
@@ -113,7 +117,7 @@
               <div class="p-body">
                 <div class="p-row">
                   <h3 class="p-name">IB Studio <span class="p-badge">Ce site</span></h3>
-                  <a href="https://ib-studio.fr" target="_blank" rel="noopener noreferrer" class="p-link">Voir ↗</a>
+                  <span class="p-link" aria-hidden="true">Voir ↗</span>
                 </div>
                 <p class="p-desc">Vitrine professionnelle avec animations avancées, design premium et performance optimisée.</p>
                 <div class="p-tags">
@@ -392,6 +396,7 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -401,6 +406,17 @@ onUnmounted(() => {
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
     transform: translateY(-4px);
   }
+}
+
+.p-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+.p-card-link:focus-visible {
+  outline: 2px solid #60A5FA;
+  outline-offset: -2px;
 }
 
 /* Browser chrome */

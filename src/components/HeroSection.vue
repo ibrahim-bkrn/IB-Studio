@@ -8,7 +8,7 @@
     <div class="hero-container">
       <div class="hero-content" :class="{ visible: mounted }">
         <h1 class="hero-title">
-          Je conçois des sites web <br class="desktop-br">pour les entrepreneurs qui veulent <br class="desktop-br">un site web qui travaille pour eux.
+          Je conçois des sites web <br class="desktop-br">qui travaillent pour vous, pas l'inverse.
         </h1>
 
         <p class="hero-subtitle">
@@ -172,7 +172,7 @@ onUnmounted(() => {
 .hero-subtitle,
 .hero-actions,
 .hero-stats {
-  opacity: 0; 
+  opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
               transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
@@ -182,6 +182,10 @@ onUnmounted(() => {
 .hero-content.visible .hero-subtitle { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
 .hero-content.visible .hero-actions  { opacity: 1; transform: translateY(0); transition-delay: 0.44s; }
 .hero-content.visible .hero-stats    { opacity: 1; transform: translateY(0); transition-delay: 0.58s; }
+
+@media (max-width: 768px) {
+  .hero-content    { margin-top: 3vh; }
+}
 
 .hero-badge {
   display: inline-flex;

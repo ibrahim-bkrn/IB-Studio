@@ -157,23 +157,6 @@ const services = [
   display: inline-block;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #2563EB, #60A5FA);
-  border-radius: 2px;
-  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
-}
-
-.services-container.visible .section-title::after {
-  width: 60px;
-}
-
 .section-subtitle {
   font-size: 17px;
   color: #64748B;

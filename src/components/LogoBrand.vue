@@ -78,27 +78,21 @@
   ══════════════════════════════════════════════════ -->
   <svg v-else
     :height="height"
-    viewBox="0 0 144 36"
+    viewBox="0 0 130 36"
     xmlns="http://www.w3.org/2000/svg"
     :aria-label="label"
     role="img"
     class="logo-brand"
     fill="none"
   >
-    <defs>
-      <linearGradient id="ibGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#2563EB"/>
-        <stop offset="100%" stop-color="#60A5FA"/>
-      </linearGradient>
-    </defs>
     <text x="2" y="27"
-      font-family="Inter, -apple-system, sans-serif"
-      font-weight="800" font-size="28" fill="url(#ibGrad)" letter-spacing="-1"
+      font-family="'Be Vietnam Pro', Inter, -apple-system, sans-serif"
+      font-weight="700" font-size="26" fill="#F8FAFC" letter-spacing="-0.5"
     >IB</text>
-    <text x="46" y="25"
-      font-family="Inter, -apple-system, sans-serif"
-      font-weight="300" font-size="12.5" fill="#F8FAFC" letter-spacing="2.5"
-    >STUDIO</text>
+    <text x="35" y="27"
+      font-family="'Be Vietnam Pro', Inter, -apple-system, sans-serif"
+      font-weight="400" font-size="26" fill="rgba(248,250,252,0.45)" letter-spacing="-0.5"
+    >Studio</text>
   </svg>
 </template>
 
