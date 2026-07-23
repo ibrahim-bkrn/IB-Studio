@@ -298,7 +298,7 @@ function resetForm() {
 
 <style scoped>
 .contact {
-  background: #FFFFFF;
+  background: #0A0F1E;
   padding: 120px 24px;
   position: relative;
 }
@@ -345,14 +345,14 @@ function resetForm() {
 .section-title {
   font-size: clamp(36px, 5vw, 48px);
   font-weight: 700;
-  color: #0A0F1E;
+  color: #F8FAFC;
   letter-spacing: -1.5px;
   margin-bottom: 12px;
 }
 
 .section-subtitle {
   font-size: 17px;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.5);
   font-style: italic;
 }
 
@@ -365,7 +365,7 @@ function resetForm() {
 
 .contact-pitch {
   font-size: 16px;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.55);
   line-height: 1.8;
   margin-bottom: 40px;
 }
@@ -404,13 +404,13 @@ function resetForm() {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: #0A0F1E;
+  color: #F8FAFC;
   margin-bottom: 2px;
 }
 
 .contact-badge span {
   font-size: 13px;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.5);
 }
 
 /* Contact direct */
@@ -426,7 +426,7 @@ function resetForm() {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #94A3B8;
+  color: rgba(248, 250, 252, 0.4);
   margin-bottom: 2px;
 }
 
@@ -501,13 +501,13 @@ function resetForm() {
 }
 
 .contact-form {
-  background: rgba(37, 99, 235, 0.03);
-  border: 1px solid rgba(37, 99, 235, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   padding: 40px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(37, 99, 235, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .form-row {
@@ -526,7 +526,7 @@ function resetForm() {
 .form-label {
   font-size: 13px;
   font-weight: 600;
-  color: #0A0F1E;
+  color: #F8FAFC;
   letter-spacing: 0.2px;
   display: flex;
   align-items: center;
@@ -539,8 +539,8 @@ function resetForm() {
   gap: 10px;
   height: 50px;
   padding: 0 14px;
-  background: #FFFFFF;
-  border: 1.5px solid rgba(10, 15, 30, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   transition: border-color 0.22s ease, box-shadow 0.22s ease;
 }
@@ -558,7 +558,7 @@ function resetForm() {
 .input-icon {
   width: 17px;
   height: 17px;
-  color: #94A3B8;
+  color: rgba(248, 250, 252, 0.4);
   flex-shrink: 0;
   transition: color 0.22s ease;
 }
@@ -573,22 +573,22 @@ function resetForm() {
   outline: none;
   background: transparent;
   font-size: 15px;
-  color: #0A0F1E;
+  color: #F8FAFC;
   font-family: inherit;
   height: 100%;
 }
 
 .form-field::placeholder {
-  color: #94A3B8;
+  color: rgba(248, 250, 252, 0.35);
 }
 
 .form-input {
   padding: 13px 16px;
-  background: #FFFFFF;
-  border: 1.5px solid rgba(10, 15, 30, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   font-size: 15px;
-  color: #0A0F1E;
+  color: #F8FAFC;
   transition: border-color 0.22s ease, box-shadow 0.22s ease;
   outline: none;
   width: 100%;
@@ -596,7 +596,7 @@ function resetForm() {
 }
 
 .form-input::placeholder {
-  color: #94A3B8;
+  color: rgba(248, 250, 252, 0.35);
 }
 
 .form-input:focus {
@@ -613,10 +613,15 @@ function resetForm() {
   cursor: pointer;
   appearance: none;
   height: 50px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23CBD5E1' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
   padding-right: 44px;
+}
+
+.form-select option {
+  background-color: #0A0F1E;
+  color: #F8FAFC;
 }
 
 .form-textarea {
@@ -627,7 +632,7 @@ function resetForm() {
 .form-optional {
   font-size: 12px;
   font-weight: 400;
-  color: #94A3B8;
+  color: rgba(248, 250, 252, 0.35);
 }
 
 .form-error {
@@ -751,13 +756,13 @@ function resetForm() {
 .form-success h3 {
   font-size: 24px;
   font-weight: 700;
-  color: #0A0F1E;
+  color: #F8FAFC;
   margin-bottom: 12px;
 }
 
 .form-success p {
   font-size: 16px;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.55);
   margin-bottom: 32px;
 }
 

@@ -1,7 +1,6 @@
 <template>
   <section class="hero" aria-label="Introduction">
     <div class="hero-orb hero-orb--1" aria-hidden="true" :style="orbStyle(0.02, 0.015)"></div>
-    <div class="hero-orb hero-orb--2" aria-hidden="true" :style="orbStyle(-0.018, -0.012)"></div>
     <div class="hero-orb hero-orb--3" aria-hidden="true" :style="orbStyle(0.01, 0.02)"></div>
     <div class="hero-grid" aria-hidden="true"></div>
 
@@ -12,7 +11,7 @@
         </h1>
 
         <p class="hero-subtitle">
-          Laissez votre site bosser pour vous (pas l'inverse) : conçu pour plaire, construit pour durer, fait pour attirer les bons clients.
+          Conçu pour plaire, construit pour durer, fait pour attirer les bons clients.
         </p>
 
         <div class="hero-actions">
@@ -26,8 +25,8 @@
 
         <div class="hero-stats" aria-label="Chiffres clés">
           <div class="stat-card">
-            <span class="stat-number">+5</span>
-            <span class="stat-label">Projets livrés</span>
+            <span class="stat-number">24h</span>
+            <span class="stat-label">de délai de réponse</span>
           </div>
           <div class="stat-card">
             <span class="stat-number">3 ans</span>
@@ -112,15 +111,6 @@ onUnmounted(() => {
   animation: orb-float 9s ease-in-out infinite;
 }
 
-.hero-orb--2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.25) 0%, rgba(37, 99, 235, 0.08) 50%, transparent 70%);
-  bottom: -60px;
-  right: -120px;
-  animation: orb-float 11s ease-in-out infinite reverse;
-}
-
 .hero-orb--3 {
   width: 380px;
   height: 380px;
@@ -159,7 +149,7 @@ onUnmounted(() => {
   width: 100%;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   text-align: center;
 }
 

@@ -1,8 +1,5 @@
 <template>
   <section class="process" aria-labelledby="process-title">
-    <div class="process-orb process-orb--1" aria-hidden="true"></div>
-    <div class="process-orb process-orb--2" aria-hidden="true"></div>
-
     <div ref="sectionEl" class="process-container" :class="{ visible: isVisible }">
       <div class="section-header">
         <span class="section-label" aria-hidden="true">— Comment je travaille</span>
@@ -104,34 +101,11 @@ const steps = [
   overflow: hidden;
 }
 
-.process-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-}
-
-.process-orb--1 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
-  top: 0;
-  left: -150px;
-}
-
-.process-orb--2 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.12) 0%, transparent 70%);
-  bottom: 0;
-  right: -100px;
-}
-
 .process-container {
   max-width: 860px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
@@ -166,22 +140,6 @@ const steps = [
   margin-bottom: 20px;
   position: relative;
   display: inline-block;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #2563EB, #60A5FA);
-  border-radius: 2px;
-  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
-}
-
-.process-container.visible .section-title::after {
-  width: 60px;
 }
 
 .section-subtitle {

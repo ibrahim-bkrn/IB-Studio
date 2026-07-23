@@ -77,8 +77,8 @@ watch(isVisible, (v) => {
 .stat-card {
   padding: 40px 48px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(44px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 

@@ -10,7 +10,7 @@
         <h2 id="diff-title" class="diff-title">
           Pourquoi choisir<br class="mobile-break" /> IB Studio ?
         </h2>
-        <p class="diff-subtitle"> 
+        <p class="diff-subtitle">
           Voici ce qui me différencie.
         </p>
       </div>
@@ -75,10 +75,9 @@ const points = [
   background: #0A0F1E;
   padding: 120px 24px;
   position: relative;
-  /* débordement haut autorisé (orbe bleue remonte dans la section sombre précédente)
-     débordement bas clippé (ne saigne pas sur la section blanche) */
+  /* débordement haut et bas autorisés : les deux sections voisines sont sombres */
   overflow: visible;
-  clip-path: inset(-400px 0px 0px 0px);
+  clip-path: inset(-400px 0px -300px -300px);
 }
 
 /* Orbes */
@@ -153,22 +152,6 @@ const points = [
   margin-bottom: 20px;
   position: relative;
   display: inline-block;
-}
-
-.diff-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #2563EB, #60A5FA);
-  border-radius: 2px;
-  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
-}
-
-.diff-container.visible .diff-title::after {
-  width: 64px;
 }
 
 .diff-subtitle {

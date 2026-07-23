@@ -61,7 +61,7 @@ const techsAlt = [
 
 <style scoped>
 .stack {
-  background: #F8FAFC;
+  background: #0A0F1E;
   padding: 80px 0 72px;
   overflow: hidden;
 }
@@ -71,8 +71,8 @@ const techsAlt = [
   margin: 0 auto 48px;
   padding: 0 24px;
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(44px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stack-header.visible {
@@ -91,7 +91,7 @@ const techsAlt = [
 
 .stack-sub {
   font-size: 15px;
-  color: #94A3B8;
+  color: rgba(248, 250, 252, 0.45);
   font-weight: 400;
 }
 
@@ -115,12 +115,12 @@ const techsAlt = [
 
 .marquee-fade-left {
   left: 0;
-  background: linear-gradient(90deg, #F8FAFC, transparent);
+  background: linear-gradient(90deg, #0A0F1E, transparent);
 }
 
 .marquee-fade-right {
   right: 0;
-  background: linear-gradient(-90deg, #F8FAFC, transparent);
+  background: linear-gradient(-90deg, #0A0F1E, transparent);
 }
 
 .marquee-track {
@@ -153,14 +153,14 @@ const techsAlt = [
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: #fff;
-  border: 1px solid #E2E8F0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 50px;
   font-size: 14px;
   font-weight: 600;
-  color: #1E293B;
+  color: #F8FAFC;
   white-space: nowrap;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: border-color 0.2s ease;
   flex-shrink: 0;
 }

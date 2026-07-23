@@ -98,26 +98,16 @@ const services = [
 
 <style scoped>
 .services {
-  background: #F8FAFC;
+  background: #0A0F1E;
   padding: 120px 24px;
   position: relative;
-  overflow: hidden;
-}
-
-.services::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3), transparent);
 }
 
 .services-container {
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .section-header {
@@ -150,7 +140,7 @@ const services = [
 .section-title {
   font-size: clamp(36px, 5vw, 48px);
   font-weight: 700;
-  color: #0A0F1E;
+  color: #F8FAFC;
   letter-spacing: -1.5px;
   margin-bottom: 16px;
   position: relative;
@@ -159,7 +149,7 @@ const services = [
 
 .section-subtitle {
   font-size: 17px;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.5);
   font-style: italic;
   max-width: 520px;
   margin: 0 auto;
@@ -174,8 +164,8 @@ const services = [
 
 /* Entrée en stagger par carte */
 .service-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(10, 15, 30, 0.07);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 40px 36px;
   position: relative;
@@ -184,7 +174,7 @@ const services = [
   transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               transform 0.1s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.2);
   opacity: 0;
   animation: card-enter 0.65s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
@@ -215,8 +205,8 @@ const services = [
 
 @media (hover: hover) {
   .service-card:hover {
-    box-shadow: 0 8px 40px rgba(37, 99, 235, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
-    border-color: rgba(37, 99, 235, 0.22);
+    box-shadow: 0 8px 40px rgba(37, 99, 235, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-color: rgba(37, 99, 235, 0.4);
   }
   .service-card:hover::before { opacity: 1; }
   .service-card:hover .card-icon {
@@ -236,7 +226,7 @@ const services = [
   right: 22px;
   font-size: 72px;
   font-weight: 800;
-  color: rgba(10, 15, 30, 0.04);
+  color: rgba(255, 255, 255, 0.05);
   letter-spacing: -5px;
   line-height: 1;
   pointer-events: none;
@@ -267,14 +257,14 @@ const services = [
 .card-title {
   font-size: 20px;
   font-weight: 700;
-  color: #0A0F1E;
+  color: #F8FAFC;
   margin-bottom: 12px;
   letter-spacing: -0.5px;
 }
 
 .card-text {
   font-size: 15px;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.5);
   line-height: 1.7;
 }
 

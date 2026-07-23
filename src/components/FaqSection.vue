@@ -147,25 +147,16 @@ const faqs = [
 
 <style scoped>
 .faq {
-  background: #F8FAFC;
+  background: #0A0F1E;
   padding: 120px 24px;
   position: relative;
-}
-
-.faq::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.25), transparent);
 }
 
 .faq-container {
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
@@ -194,7 +185,7 @@ const faqs = [
 .section-title {
   font-size: clamp(36px, 5vw, 48px);
   font-weight: 700;
-  color: #0A0F1E;
+  color: #F8FAFC;
   letter-spacing: -1.5px;
   line-height: 1.15;
   margin-bottom: 16px;
@@ -202,26 +193,9 @@ const faqs = [
   display: inline-block;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #2563EB, #60A5FA);
-  border-radius: 2px;
-  transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
-}
-
-.faq-container.visible .section-title::after {
-  width: 60px;
-}
-
 .section-subtitle {
   font-size: 16px;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.5);
 }
 
 .subtitle-link {
@@ -251,12 +225,12 @@ const faqs = [
 }
 
 .faq-item {
-  border-bottom: 1px solid rgba(10, 15, 30, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
 }
 
 .faq-item:first-child {
-  border-top: 1px solid rgba(10, 15, 30, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .faq-question {
@@ -272,7 +246,7 @@ const faqs = [
   text-align: left;
   font-size: 16px;
   font-weight: 600;
-  color: #0A0F1E;
+  color: #F8FAFC;
   transition: color 0.3s ease;
 }
 
@@ -288,12 +262,12 @@ const faqs = [
   flex-shrink: 0;
   width: 32px;
   height: 32px;
-  background: rgba(37, 99, 235, 0.07);
+  background: rgba(37, 99, 235, 0.1);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.5);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -314,7 +288,7 @@ const faqs = [
 
 .faq-answer-inner p {
   font-size: 15px;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.5);
   line-height: 1.8;
 }
 
@@ -328,7 +302,8 @@ const faqs = [
 }
 
 .faq-cta-card {
-  background: #0A0F1E;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 32px 28px;
   display: flex;
@@ -385,14 +360,14 @@ const faqs = [
 }
 
 .stat {
-  background: #FFFFFF;
-  border: 1px solid rgba(10, 15, 30, 0.07);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
@@ -412,7 +387,7 @@ const faqs = [
 
 .stat span {
   font-size: 11.5px;
-  color: #64748B;
+  color: rgba(248, 250, 252, 0.45);
   line-height: 1.4;
 }
 
